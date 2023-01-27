@@ -1,25 +1,44 @@
 import React, { useState, useEffect } from "react";
 import { participantsData } from "../../../constants/participants.const";
-import { timerConst } from "../../../constants/timer.const";
+import { initialTimerDuration } from "../../../constants/initial-timer-duration.const";
 import { Timer } from "../../timer/timer";
 import { startTradingDate } from "../../../functions/start-trading-date.func";
+// import { timerDurationSec } from "../../../constants/timer-duration-sec.const";
 
-const INITIALCOUNT =
-  timerConst.hour * 60 * 60 + timerConst.min + timerConst.sec;
-const STATUS = {
-  STARTED: "Started",
-  STOPPED: "Stopped",
-};
+const timerDurationSec =
+  initialTimerDuration.hour * 60 * 60 +
+  initialTimerDuration.min +
+  initialTimerDuration.sec;
+
+  const curentTimer = (): number => {
+    const timerDurationSecInMilSec = timerDurationSec * 1000;
+    const timeHasPassed = Number(new Date()) - startTradingDate();
+    console.log("timerDurationSecInMilSec", timerDurationSecInMilSec);
+    const fullCyclesOfTimer = timeHasPassed / timerDurationSecInMilSec;
+    if (participantsData.length - 1 > 0) {
+      return Math.trunc(fullCyclesOfTimer % participantsData.length);
+    } else {
+      return 0;
+    }
+  };
+
+
 
 export const TableHead = () => {
   const hour = 0;
   const min = 0;
   const sec = 5;
 
-  const [time, setTime] = useState(INITIALCOUNT);
+  const [time, setTime] = useState(timerDurationSec);
   const [timerCondition, setTimerCondition] = useState(true);
-  const [activeParticipant, setActiveParticipant] = useState(0);
+  const [activeParticipant, setActiveParticipant] = useState(curentTimer());
   const duration = 2 * 60;
+
+  console.log(startTradingDate());
+  console.log(Number(new Date()));
+
+
+  console.log("curentTimer()", curentTimer());
 
   const tick = () => {
     const timerId = setInterval(() => {
@@ -32,33 +51,13 @@ export const TableHead = () => {
   };
   tick();
   useEffect(() => {
-    if (time === 0 && activeParticipant < participantsData.length - 1) {
-      console.log("from first useEffect time", time);
-      setTimerCondition(false);
-      setTime(INITIALCOUNT);
-      setActiveParticipant(activeParticipant + 1);
-
-      console.log("from first useEffect time 2", time);
+    setActiveParticipant(curentTimer())
+    if (time === 0) {
+      setTime(timerDurationSec);
     }
-    if (time === INITIALCOUNT && timerCondition === false) {
-      setTimerCondition(true);
-    }
-  }, [time, timerCondition, activeParticipant]);
+  }, [time]);
 
-  //   useEffect(()=>{
-  // if(time===0)
-  //   },[timerCondition])
-
-  //   useEffect(()=>{
-  //   //   if(time===INITIALCOUNT){
-  //   //   setTimerCondition(true)
-  //   // }
-  //   setTime(INITIALCOUNT)
-  //     console.log('from second useEffect time',time)
-  // //  tick()
-  //   },[activeParticipant])
-
-  //обратный отсчет ддолжен быть реализован в самом таймере, через setInterval
+  //обратный отсчет должен быть реализован в самом таймере, через setInterval
   return (
     <thead>
       <tr>
@@ -98,12 +97,3 @@ export const TableHead = () => {
 //   return (hour * 60 * 60 + min * 60 + sec)*1000;
 // };
 // console.log(totalDuration())
-
-// setTimeout(()=>{
-
-// },duration)
-
-// if (!!timerCondition) {
-//   setTimerCondition(true);
-// }
-// setTime(INITIALCOUNT)

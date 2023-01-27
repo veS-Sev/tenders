@@ -8,10 +8,10 @@ export const TableBody = () => {
   return (
     <tbody>
       {Object.getOwnPropertyNames(tradingParameters).map((parametr: string) => (
-        <tr>
+        <tr key={tradingParameters+parametr}>
           <th key={parametr}>{tradingParameters[parametr as keyof TTradingParameters]}</th>
           {participantsData.map((participant) => (
-            <td>{participant[parametr as keyof TTradingParameters]}</td>
+            <td key={participant.id}>{participant[parametr as keyof TTradingParameters]}</td>
           ))}
         </tr>
       ))}

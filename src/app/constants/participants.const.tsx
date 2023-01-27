@@ -10,5 +10,11 @@ export const participantsData: TParticipantsData = [
         improveStandartActivites:'да',
         price:80000
     },
+    {
+        id:'03',
+        name:"Пион",
+        improveStandartActivites:'нет',
+        price:81500
+    }
   ];
   

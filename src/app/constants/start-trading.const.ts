@@ -2,8 +2,8 @@ export const startTradingConst={
     year:2023,
     month:0,
     day:26,
-    hour: 13,
-    min: 55,
+    hour: 14,
+    min: 56,
     sec: 0,
 }
 //месяцы в js нумеруются с 0, т.е. 0 - это январь, 1 это февраль и т.д.

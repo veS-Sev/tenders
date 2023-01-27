@@ -1,4 +1,4 @@
-export type TTimerConst= {
+export type TInitialTimerDuration= {
     hour: number;
     min: number;
     sec: number;
