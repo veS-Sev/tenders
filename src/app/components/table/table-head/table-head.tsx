@@ -7,78 +7,98 @@ import { startTradingDate } from "../../../functions/start-trading-date.func";
 
 const timerDurationSec =
   initialTimerDuration.hour * 60 * 60 +
-  initialTimerDuration.min +
+  initialTimerDuration.min * 60 +
   initialTimerDuration.sec;
 
-  const curentTimer = (): number => {
-    const timerDurationSecInMilSec = timerDurationSec * 1000;
-    const timeHasPassed = Number(new Date()) - startTradingDate();
-    console.log("timerDurationSecInMilSec", timerDurationSecInMilSec);
-    const fullCyclesOfTimer = timeHasPassed / timerDurationSecInMilSec;
-    if (participantsData.length - 1 > 0) {
-      return Math.trunc(fullCyclesOfTimer % participantsData.length);
-    } else {
-      return 0;
-    }
-  };
+console.log("timerDurationSec", timerDurationSec);
+// timerDurationSecInMilSec - количество секунд, заданное для таймера умножено на 1000
+const timerDurationSecInMilSec = timerDurationSec * 1000;
 
+const curentActiveParticipant = (): any => {
+  // timeHasPassed - разница между текущим временем и временем начала торгов
+  const timeHasPassed = Number(new Date()) - startTradingDate();
+  // fullCyclesOfTimer - количество таймеров, которые были завершены за время тогров округлено до тысячных
+  const fullCyclesOfTimer = Number(
+    (timeHasPassed / timerDurationSecInMilSec).toFixed(3)
+  );
+  if (participantsData.length - 1 > 0) {
+    // curentActiveParticipant - челое число, указывающее на текущий таймер, т.е. 0 это первый и т.п.. Получили остаток от деления  циклов отыгранных за время торгов на количесвтво участников. Выражена в целом числе
+    const curentActiveParticipant = Math.trunc(
+      fullCyclesOfTimer % participantsData.length
+    );
 
+    return curentActiveParticipant;
+  } else {
+    return 0;
+  }
+};
+// curentSecTimer()-Сколько осталось секунд работы таймера
+const curentSecTimer = () => {
+  // timeHasPassed - разница между текущим временем и временем начала торгов
+  const timeHasPassed = Number(new Date()) - startTradingDate();
+  // console.log("timeHasPassed", timeHasPassed);
+
+  // SecondsOfCurrentTimerPassed -получили остаток от деления пройденного времени торгов на длительность таймера в миллисекундах
+  const SecondsOfCurrentTimerPassed = Math.round(
+    (timeHasPassed % timerDurationSecInMilSec) / 1000
+  );
+  // console.log("SecondsOfCurrentTimerPassed", SecondsOfCurrentTimerPassed);
+  //  - отнимаем от длительности таймера количество пройденных секунд с начала отсчета таймера
+  // const curentSecTimer=timerDurationSec-SecondsOfCurrentTimerPassed
+  return timerDurationSec - SecondsOfCurrentTimerPassed;
+};
+
+console.log("curentSecTimer()", curentSecTimer());
+export type TCurentTimerTime = {
+  curentTimerHour: number;
+  curentTimerMinutes: number;
+};
 
 export const TableHead = () => {
-  const hour = 0;
-  const min = 0;
-  const sec = 5;
-
-  const [time, setTime] = useState(timerDurationSec);
+  const [secRemaiming, setSec] = useState(initialTimerDuration.sec);
+  const [minRemaiming, setMinRemaiming] = useState(initialTimerDuration.min);
+  const [hourRemaiming, setHourRemaiming] = useState(initialTimerDuration.hour);
   const [timerCondition, setTimerCondition] = useState(true);
-  const [activeParticipant, setActiveParticipant] = useState(curentTimer());
-  const duration = 2 * 60;
-
-  console.log(startTradingDate());
-  console.log(Number(new Date()));
-
-
-  console.log("curentTimer()", curentTimer());
+  const [activeParticipant, setActiveParticipant] = useState(
+    curentActiveParticipant()
+  );
 
   const tick = () => {
     const timerId = setInterval(() => {
-      if (time > 0) {
-        setTime(time - 1);
-      }
-      console.log("activeParticipant from if tick", activeParticipant);
+      const totalSecRemaiming = curentSecTimer();
+      console.log("totalSecRemaiming", totalSecRemaiming);
+      setSec(curentSecTimer() % 60);
+      console.log("curentSecTimer() % 60", curentSecTimer() % 60);
+      const curentMinut =
+        ((totalSecRemaiming % 3600) - (totalSecRemaiming % 60)) / 60;
+      console.log("secRemaiming", secRemaiming);
+      console.log("curentMinut", curentMinut);
+      setMinRemaiming(curentMinut);
+      setHourRemaiming(Math.trunc(totalSecRemaiming / 3600));
       clearInterval(timerId);
     }, 1000);
   };
   tick();
   useEffect(() => {
-    setActiveParticipant(curentTimer())
-    if (time === 0) {
-      setTime(timerDurationSec);
-    }
-  }, [time]);
+    setActiveParticipant(curentActiveParticipant());
+  }, [secRemaiming]);
 
-  //обратный отсчет должен быть реализован в самом таймере, через setInterval
   return (
     <thead>
       <tr>
-        <th>{startTradingDate()}</th>
+        <th>Ход</th>
         {participantsData.map((participant: any) => (
           <th key={participant.id} data-participant={participant.id}>
             {timerCondition &&
             activeParticipant === participantsData.indexOf(participant) ? (
-              <>
-                <div>{`${activeParticipant} and ${participantsData.indexOf(
-                  participant
-                )}`}</div>
                 <Timer
                   key={participant.id}
                   data-participant={participant.id}
                   timerCondition={timerCondition}
-                  hour={hour}
-                  min={min}
-                  sec={time}
+                  hourRemaiming={hourRemaiming}
+                  minRemaiming={minRemaiming}
+                  secRemaiming={secRemaiming}
                 />
-              </>
             ) : null}
           </th>
         ))}
@@ -86,14 +106,3 @@ export const TableHead = () => {
     </thead>
   );
 };
-// const startGlobalTime = Math.floor(1674126428000 / 1000.0);
-// console.log("startGlobalTiime", startGlobalTime);
-
-// const totalDuration = () => {
-//   return hour * 60 * 60 + min * 60 + sec;
-// };
-
-// const totalDuration = ():number => {
-//   return (hour * 60 * 60 + min * 60 + sec)*1000;
-// };
-// console.log(totalDuration())

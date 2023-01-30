@@ -4,8 +4,8 @@ id?:string|number|any,
 style?:string,
 duration?:number,
 time?:number,
-hour:number,
-min:number,
-sec:number,
+hourRemaiming:number,
+minRemaiming:number,
+secRemaiming:number,
 timerCondition:boolean
 }
