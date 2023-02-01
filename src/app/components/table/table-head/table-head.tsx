@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import './table-head.scss'
 import { participantsData } from "../../../constants/participants.const";
 import { initialTimerDuration } from "../../../constants/initial-timer-duration.const";
 import { Timer } from "../../timer/timer";
@@ -84,9 +85,9 @@ export const TableHead = () => {
   }, [secRemaiming]);
 
   return (
-    <thead>
+    <thead className="table-head">
       <tr>
-        <th>Ход</th>
+        <th className="tablehead-th">Ход</th>
         {participantsData.map((participant: any) => (
           <th key={participant.id} data-participant={participant.id}>
             {timerCondition &&

@@ -1,4 +1,5 @@
 import React from "react";
+import './table-body.scss';
 import { TTradingParameters } from "../../../constants/types";
 import { tradingParameters } from "../../../constants/trading-parameters.const";
 import { participantsData } from "../../../constants/participants.const";
