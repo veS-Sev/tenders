@@ -4,8 +4,9 @@ id?:string|number|any,
 style?:string,
 duration?:number,
 time?:number,
-hourRemaiming:number,
-minRemaiming:number,
-secRemaiming:number,
-timerCondition:boolean
+hourRemaiming?:number,
+minRemaiming?:number,
+secRemaiming?:number,
+activeParticipantTimer:(timerWorkCondition:boolean)=>void,
+
 }
