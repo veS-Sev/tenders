@@ -22,8 +22,10 @@ export const TableHead = () => {
     }
   }, []);
 const changeActiveParticipant=(timerWorkCondition:boolean)=>{
+ 
   if(!timerWorkCondition){
-  setActiveParticipant(currentActiveParticipant()) }
+  setActiveParticipant(currentActiveParticipant())
+console.log('setActiveParticipant',currentActiveParticipant()) }
 }
   return (
     <thead className="table-head">

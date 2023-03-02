@@ -1,4 +1,6 @@
-import{initialTimerDuration} from '../constants/initial-timer-duration.const'
+import { initialTimerDuration } from "./initial-timer-duration.const";
 
-
-export const timerDurationSec = initialTimerDuration.hour * 60 * 60 + initialTimerDuration.min + initialTimerDuration.sec;
+export const timerDurationInMilSec =(
+  initialTimerDuration.hour * 60 * 60 +
+  initialTimerDuration.min +
+  initialTimerDuration.sec)*1000;

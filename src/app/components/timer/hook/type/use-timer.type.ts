@@ -1,5 +1,5 @@
 export type TUseTimer = {
-    secRemaiming: number;
-    minRemaiming: number;
-    hourRemaiming: number;
+    secRemaiming: number|null;
+    minRemaiming: number|null;
+    hourRemaiming: number|null;
   };

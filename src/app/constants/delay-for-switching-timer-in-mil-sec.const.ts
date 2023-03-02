@@ -1,0 +1,1 @@
+export const delayForSwitchingTimerInMilSec:string|number = "1000";

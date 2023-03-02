@@ -1,24 +1,20 @@
-import { initialTimerDuration } from "../constants/initial-timer-duration.const";
 import { startTradingDate } from "./start-trading-date.func";
 import { participantsData } from "../constants/participants.const";
-const timerDurationSec =
-  initialTimerDuration.hour * 60 * 60 +
-  initialTimerDuration.min * 60 +
-  initialTimerDuration.sec;
+import {timerDurationInMilSec} from "../constants/timer-duration-sec.const"
+import {delayForSwitchingTimerInMilSec} from '../constants/delay-for-switching-timer-in-mil-sec.const'
 
-console.log("timerDurationSec", timerDurationSec);
-// timerDurationSecInMilSec - количество секунд, заданное для таймера умножено на 1000
-const timerDurationSecInMilSec = timerDurationSec * 1000;
+// timerDurationWithSwichDuration - количество милисекунд, заданное для таймера и для его переключения
+const timerDurationWithSwichDuration = timerDurationInMilSec+Number(delayForSwitchingTimerInMilSec);
 
 export const currentActiveParticipant = ():number => {
     // timeHasPassed - разница между текущим временем и временем начала торгов
     const timeHasPassed = Number(new Date()) - startTradingDate();
-    // fullCyclesOfTimer - количество таймеров, которые были завершены за время тогров округлено до тысячных
+    // fullCyclesOfTimer - количество таймеров, которые были завершены за время торгов округлено до тысячных
     const fullCyclesOfTimer = Number(
-      (timeHasPassed / timerDurationSecInMilSec).toFixed(3)
+      (timeHasPassed / timerDurationWithSwichDuration).toFixed(3)
     );
     if (participantsData.length - 1 > 0) {
-      //  - челое число, указывающее на текущий таймер, т.е. 0 это первый и т.п.. Получили остаток от деления  циклов отыгранных за время торгов на количесвтво участников. Выражена в целом числе
+      //  - челое число, указывающее участника для которого должен работать таймер на данный момент, т.е. 0 это первый участник и т.п.. Получили остаток от деления  циклов, отыгранных за время торгов на количесвтво участников. 
           return Math.trunc(fullCyclesOfTimer % participantsData.length
       )
     } else {

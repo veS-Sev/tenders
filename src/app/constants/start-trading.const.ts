@@ -1,9 +1,11 @@
+// type NumberLiteralType = 0b101 | 0o5 | 5 | 0x5;
+
 export const startTradingConst={
     year:2023,
-    month:1,
-    day:10,
-    hour: 14,
-    min: 3,
+    month:3,
+    day:2,
+    hour: 10,
+    min: 46,
     sec: 0,
 }
-//месяцы нумеруются с 0, т.е. 0 - это январь, 1 это февраль и т.д.
+//месяцы нумеруются обычным порядком,т.е. 1 - это январь и т.д
