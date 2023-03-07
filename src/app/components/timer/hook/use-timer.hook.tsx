@@ -20,6 +20,7 @@ export const useTimer = (
       clearInterval(timerId);
     }, 1000);
   };
+  console.log('test')
   useEffect(() => {
     setMinRemaiming(curentMinut);
     setHourRemaiming(Math.trunc(totalSecRemaiming / 3600));
