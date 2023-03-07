@@ -15,18 +15,18 @@ export const TableHead = () => {
     currentActiveParticipant()
   );
   const timeHasPassed = Number(new Date()) - startTradingDate();
-  console.log("timeHasPassed1", timeHasPassed);
+
   useEffect(() => {
     if (timeHasPassed > 0) {
       setAuctionStarted(true);
     }
   }, []);
-const changeActiveParticipant=(timerWorkCondition:boolean)=>{
- 
-  if(!timerWorkCondition){
-  setActiveParticipant(currentActiveParticipant())
-console.log('setActiveParticipant',currentActiveParticipant()) }
-}
+  const changeActiveParticipant = (timerWorkCondition: boolean) => {
+    if (!timerWorkCondition) {
+      setActiveParticipant(currentActiveParticipant());
+      console.log("setActiveParticipant", currentActiveParticipant());
+    }
+  };
   return (
     <thead className="table-head">
       <tr>

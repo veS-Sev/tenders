@@ -6,7 +6,6 @@ import { BsHourglassSplit } from "react-icons/bs";
 export const Timer = ({ activeParticipantTimer }: TTimerProps) => {
   const { secRemaiming, minRemaiming, hourRemaiming} =
     useTimer(activeParticipantTimer);
-    
   return (
     <div className="timer">
       <div id="hourRemaiming">{String(hourRemaiming).padStart(2, "0")}:</div>

@@ -1,4 +1,3 @@
-import { useState} from "react";
 import { useDispatch } from "react-redux";
 import { changeParticipant } from "../../store/slices/table.slice";
 import {currentActiveParticipant} from '../../functions/current-active-participant.funс'
