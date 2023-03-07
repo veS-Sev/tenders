@@ -3,8 +3,8 @@ import "./table-head.scss";
 import { participantsData } from "../../../constants/participants.const";
 import { initialTimerDuration } from "../../../constants/initial-timer-duration.const";
 import { Timer } from "../../timer/timer";
-import { startTradingDate } from "../../../functions/start-trading-date.func";
-import { currentActiveParticipant } from "../../../functions/current-active-participant.funс";
+import { currentActiveParticipant, timeHasPassed} from "../../../functions/index";
+
 import { useDispatch, useSelector } from "react-redux";
 import { TTableHead } from "./types/index";
 import { store } from "../../../store";
@@ -14,17 +14,15 @@ export const TableHead = () => {
   const [activeParticipant, setActiveParticipant] = useState(
     currentActiveParticipant()
   );
-  const timeHasPassed = Number(new Date()) - startTradingDate();
 
   useEffect(() => {
-    if (timeHasPassed > 0) {
+    if (timeHasPassed() > 0) {
       setAuctionStarted(true);
     }
   }, []);
   const changeActiveParticipant = (timerWorkCondition: boolean) => {
     if (!timerWorkCondition) {
       setActiveParticipant(currentActiveParticipant());
-      console.log("setActiveParticipant", currentActiveParticipant());
     }
   };
   return (
