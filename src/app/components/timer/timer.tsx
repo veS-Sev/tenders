@@ -1,11 +1,10 @@
 import "./timer.scss";
 import { useTimer } from "./hook/use-timer.hook";
-import { TTimerProps } from "../timer/types/index";
 import { BsHourglassSplit } from "react-icons/bs";
 
-export const Timer = ({ activeParticipantTimer }: TTimerProps) => {
+export const Timer = () => {
   const { secRemaiming, minRemaiming, hourRemaiming} =
-    useTimer(activeParticipantTimer);
+    useTimer();
   return (
     <div className="timer">
       <div id="hourRemaiming">{String(hourRemaiming).padStart(2, "0")}:</div>
