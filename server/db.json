@@ -1,31 +1,143 @@
 {
+    "tradings": [
+        {
+            "tradingId": "T-789456",
+            "tradingName": "Аппарат ЛОТОС-12SW",
+            "startTrading": {
+                "year": "2023",
+                "month": "4",
+                "day": "6",
+                "hour": "18",
+                "min": "08",
+                "sec": "0"
+            },
+            "tradingParamerts": {
+                "name": "Параметры и требования",
+                "improveStandartActivites": "Наличие комплекса мероприятий, повышающих стандарты качества изготовления",
+                "productionTime": "Срок изготовления лота",
+                "warranty": "Гарантийные обязательства",
+                "conditionsOfPayment": "Условия оплаты",
+                "price": "Стоимость изготовления лота, руб",
+                "actions": "Действия"
+            },
+            "tradingParticipants":["P-0001","P-0002","P-0003","P-0004"]
+        },
+        {
+            "tradingId": "T-456159",
+            "tradingName": "Аппарат ПЕГАС-142",
+            "startTrading": {
+                "year": "2023",
+                "month": "3",
+                "day": "2",
+                "hour": "10",
+                "min": "46",
+                "sec": "0"
+            },
+            "tradingParamerts": {
+                "name": "Параметры и требования",
+                "improveStandartActivites": "Наличие комплекса мероприятий, повышающих стандарты качества изготовления",
+                "productionTime": "Срок изготовления лота",
+                "warranty": "Гарантийные обязательства",
+                "conditionsOfPayment": "Условия оплаты",
+                "price": "Стоимость изготовления лота, руб",
+                "actions": "Действия"
+            },
+            "tradingParticipants":["P-0001","P-0002","P-0003"]
+        },
+        {
+            "tradingId": "T-332259",
+            "tradingName": "Аппарат ГЕФЕСТ",
+            "startTrading": {
+                "year": "2023",
+                "month": "3",
+                "day": "2",
+                "hour": "10",
+                "min": "46",
+                "sec": "0"
+            },
+            "tradingParamerts": {
+                "name": "Параметры и требования",
+                "improveStandartActivites": "Наличие комплекса мероприятий, повышающих стандарты качества изготовления",
+                "productionTime": "Срок изготовления лота",
+                "warranty": "Гарантийные обязательства",
+                "conditionsOfPayment": "Условия оплаты",
+                "price": "Стоимость изготовления лота, руб",
+                "actions": "Действия"
+            },
+            "tradingParticipants":["P-0001","P-0002"]
+        },
+        {
+            "tradingId": "T-756779",
+            "tradingName": "Аппарат КРОКУС-1",
+            "startTrading": {
+                "year": "2023",
+                "month": "3",
+                "day": "2",
+                "hour": "10",
+                "min": "46",
+                "sec": "0"
+            },
+            "tradingParamerts": {
+                "name": "Параметры и требования",
+                "improveStandartActivites": "Наличие комплекса мероприятий, повышающих стандарты качества изготовления",
+                "productionTime": "Срок изготовления лота",
+                "warranty": "Гарантийные обязательства",
+                "conditionsOfPayment": "Условия оплаты",
+                "price": "Стоимость изготовления лота, руб",
+                "actions": "Действия"
+            },
+            "tradingParticipants":["P-0001"]
+        },
+        {
+            "tradingId": "T-111159",
+            "tradingName": "Аппарат ЛИГА",
+            "startTrading": {
+                "year": "2023",
+                "month": "3",
+                "day": "2",
+                "hour": "10",
+                "min": "46",
+                "sec": "0"
+            },
+            "tradingParamerts": {
+                "name": "Параметры и требования",
+                "improveStandartActivites": "Наличие комплекса мероприятий, повышающих стандарты качества изготовления",
+                "productionTime": "Срок изготовления лота",
+                "warranty": "Гарантийные обязательства",
+                "conditionsOfPayment": "Условия оплаты",
+                "price": "Стоимость изготовления лота, руб",
+                "actions": "Действия"
+            },
+            "tradingParticipans":[]
+        }
+    ],
     "participants": [
         {
-            "id": "01",
+            "id": "P-0001",
             "name": "Участник 1",
             "improveStandartActivites": "нет",
             "price": 75000
         },
         {
-            "id": "02",
+            "id": "P-0002",
             "name": "Участник 2",
             "improveStandartActivites": "да",
             "price": 80000
         },
         {
-            "id": "03",
+            "id": "P-0003",
             "name": "Участник 3",
             "improveStandartActivites": "нет",
             "price": 81500
         },
         {
-            "id": "04",
+            "id": "P-0004",
             "name": "Участник 4",
             "improveStandartActivites": "да",
             "price": 98500
         },
         {
-            "id": "05",
+            "id": "P-0005",
             "name": "Участник 5",
             "improveStandartActivites": "да",
             "price": 0

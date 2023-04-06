@@ -1,5 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { currentActiveParticipant } from "../../functions/current-active-participant.funс";
+import { useFetchService } from "../../pages/traiding-page/hooks/useFetchService.hook";
+// const UseParticipantsList=()=>{
+//   const 
+// }
+
 const activeParticipantReducer = createSlice({
   name: "activeParticipant",
   initialState: {
@@ -7,9 +12,9 @@ const activeParticipantReducer = createSlice({
   },
   // В reducers перечисляется набор методов, который затем будем использовать
   reducers: {
-    changeParticipant(state, action) {
-      state.activeParticipant=currentActiveParticipant();
-      console.log('state.activeParticipant',state.activeParticipant)
+    changeParticipant:(state,action) =>{
+      console.log("changeParticipant - state", state)
+      state.activeParticipant = currentActiveParticipant(action.payload);
     },
   },
 });

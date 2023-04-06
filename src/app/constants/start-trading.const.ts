@@ -2,10 +2,10 @@
 
 export const startTradingConst={
     year:2023,
-    month:3,
-    day:2,
-    hour: 10,
-    min: 46,
+    month:4,
+    day:6,
+    hour: 18,
+    min: 16,
     sec: 0,
 }
 //месяцы нумеруются обычным порядком,т.е. 1 - это январь и т.д

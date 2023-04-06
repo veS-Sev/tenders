@@ -1,8 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
 import activeParticipantReducer from "./slices/table.slice";
+import  activeTradingReducer  from "./slices/trading.slice";
 export const store= configureStore({
     reducer:{
-        activeParticipant:activeParticipantReducer
+        activeParticipant:activeParticipantReducer,
+        activeTrading:activeTradingReducer 
     }
 })
 
