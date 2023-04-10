@@ -32,7 +32,7 @@ export const TableHead = () => {
       setAuctionStarted(true);
     }
   }, []);
-console.log('activeParticipant',activeParticipant)
+// console.log('activeParticipant',activeParticipant)
   return (
     <thead className="table-head">
       <tr>
