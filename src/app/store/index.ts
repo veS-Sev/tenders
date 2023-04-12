@@ -4,7 +4,7 @@ import  activeTradingReducer  from "./slices/trading.slice";
 export const store= configureStore({
     reducer:{
         activeParticipant:activeParticipantReducer,
-        activeTrading:activeTradingReducer 
+        activeTrading:activeTradingReducer,
     }
 })
 

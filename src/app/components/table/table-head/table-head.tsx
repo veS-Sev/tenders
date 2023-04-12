@@ -4,19 +4,18 @@ import { Timer } from "../../timer/timer";
 import { timeHasPassed } from "../../../functions/index";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../store/types/roote-state.type";
-import { chooseVisibleTrading } from "../../../store/slices/trading.slice";
+import { chooseСurrentVisibleTrading } from "../../../store/slices/trading.slice";
 import { useFetchService } from "../../../pages/traiding-page/hooks/useFetchService.hook";
-import { tradingParametr } from "../../../functions/index";
+
 
 export const TableHead = () => {
   const tradingData: any = useFetchService("http://localhost:3001/tradings");
   const activeParticipant = useSelector(
     (state: RootState) => state.activeParticipant.activeParticipant
   );
-
-  const activeTradingSelector = useSelector(chooseVisibleTrading);
+  const activeTradingSelector = useSelector(chooseСurrentVisibleTrading);
   const [auctionStarted, setAuctionStarted] = useState(false);
-  // const tradingParticipantsList=tradingParametr(tradingData,selector.payload.activeTrading.activeTrading,"tradingParticipants")
+
   const tradingParticipants = () => {
     if (tradingData) {
       return tradingData.find(
@@ -26,13 +25,13 @@ export const TableHead = () => {
       return [];
     }
   };
-  // tradingData&&tradingData.filter((x: any) => x.tradingId === tradingId)![parametr];
+
   useEffect(() => {
     if (timeHasPassed() > 0) {
       setAuctionStarted(true);
     }
   }, []);
-// console.log('activeParticipant',activeParticipant)
+
   return (
     <thead className="table-head">
       <tr>

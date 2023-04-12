@@ -2,14 +2,15 @@ import "../traiding-page/traiding-page.scss";
 import { TradingNavbar } from "../../features/trading-navbar/trading-navbar";
 import { TableContainer } from "../../components/table/table-container";
 import { useFetchService } from "../../pages/traiding-page/hooks/useFetchService.hook";
-import { useSelector } from "react-redux";
-import { chooseVisibleTrading } from "../../store/slices/trading.slice";
+import { useDispatch, useSelector } from "react-redux";
+import { chooseСurrentVisibleTrading } from "../../store/slices/trading.slice";
 import { tradingParametr } from "../../functions/index";
+import{changeParticipant} from"../../store/slices/table.slice";
 
 export const TraidingPage = () => {
   const tradingData: any = useFetchService("http://localhost:3001/tradings");
-  const activeTradingSelector = useSelector(chooseVisibleTrading);
-
+  const activeTradingSelector = useSelector(chooseСurrentVisibleTrading);
+const dispatchChangeParticipantsList=useDispatch()
   return (
     <>
       <TradingNavbar />

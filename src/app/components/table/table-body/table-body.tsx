@@ -3,7 +3,7 @@ import { TTradingParameters } from "../../../constants/types";
 import { tradingParameters } from "../../../constants/trading-parameters.const";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../store/types/roote-state.type";
-import { chooseVisibleTrading } from "../../../store/slices/trading.slice";
+import { chooseСurrentVisibleTrading } from "../../../store/slices/trading.slice";
 import { useFetchService } from "../../../pages/traiding-page/hooks/useFetchService.hook";
 
 export const TableBody = () => {
@@ -13,7 +13,7 @@ export const TableBody = () => {
   const activeParticipant = useSelector(
     (state: RootState) => state.activeParticipant.activeParticipant
   );
-  const activeTradingSelector = useSelector(chooseVisibleTrading);
+  const activeTradingSelector = useSelector(chooseСurrentVisibleTrading);
   const tradingParticipants = () => {
     if (tradingData) {
       return tradingData.find(

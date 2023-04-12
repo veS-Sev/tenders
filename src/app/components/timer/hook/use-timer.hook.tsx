@@ -5,7 +5,7 @@ import { TUseTimer } from "./type/use-timer.type";
 import { currentSecTimer } from "../../../functions/current-sec-timer.func";
 import {changeParticipant} from '../../../store/slices/table.slice'
 import { store } from "../../../store";
-import { chooseVisibleTrading } from "../../../store/slices/trading.slice";
+import { chooseСurrentVisibleTrading } from "../../../store/slices/trading.slice";
 import { tradingParametr } from "../../../functions/index";
 import { useFetchService } from "../../../pages/traiding-page/hooks/useFetchService.hook";
 export type AppDispatch = typeof store.dispatch
@@ -18,15 +18,15 @@ export const useTimer = (
   const [minRemaiming, setMinRemaiming] = useState(initialTimerDuration.min);
   const [hourRemaiming, setHourRemaiming] = useState(initialTimerDuration.hour);
   const totalSecRemaiming = currentSecTimer();
-  const activeTradingSelector = useSelector(chooseVisibleTrading);
+  const activeTradingSelector = useSelector(chooseСurrentVisibleTrading);
 
 
   const curentMinut =
     ((totalSecRemaiming % 3600) - (totalSecRemaiming % 60)) / 60;
   const tick = () => {
     const timerId = setInterval(() => {
-      if (totalSecRemaiming === 0) {
-        // тут нужно передать массив со списком участников
+      if (totalSecRemaiming === 0) { 
+        // тут вызываем функцию редюсер, которая получает аргументом массив участников по текущему лоту
         tradingData&&
         dispatch(changeParticipant(tradingParametr(
           tradingData,

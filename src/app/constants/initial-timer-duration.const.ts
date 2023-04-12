@@ -1,5 +1,5 @@
 export const initialTimerDuration={
     hour:0,
-    min:2,
+    min:1,
     sec:0
 }

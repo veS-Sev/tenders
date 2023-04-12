@@ -42,7 +42,7 @@
                 "price": "Стоимость изготовления лота, руб",
                 "actions": "Действия"
             },
-            "tradingParticipants":["P-0001","P-0002","P-0003"]
+            "tradingParticipants":["P-0002","P-0003","P-0004"]
         },
         {
             "tradingId": "T-332259",
