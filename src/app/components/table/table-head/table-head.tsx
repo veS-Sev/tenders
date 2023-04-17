@@ -4,7 +4,7 @@ import { Timer } from "../../timer/timer";
 import { timeHasPassed } from "../../../functions/index";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../store/types/roote-state.type";
-import { chooseСurrentVisibleTrading } from "../../../store/slices/trading.slice";
+import { chooseСurrentVisibleTrading } from "../../../features/tradings/slices/tradings.slice";
 import { useFetchService } from "../../../pages/traiding-page/hooks/useFetchService.hook";
 
 

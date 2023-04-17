@@ -1,8 +1,8 @@
-import { useFetchService } from "../../pages/traiding-page/hooks/useFetchService.hook";
+import { useFetchService } from "../../../pages/traiding-page/hooks/useFetchService.hook";
 import { useDispatch } from "react-redux";
 import {
   chooseСurrentVisibleTrading
-} from "../../store/slices/trading.slice";
+} from "../slices/tradings.slice";
 import { TradingsData } from "./types/tradings-data.type";
 
 export const TradingNavbar = () => {

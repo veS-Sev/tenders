@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { initialTimerDuration } from "../../../constants/initial-timer-duration.const";
 import { TUseTimer } from "./type/use-timer.type";
 import { currentSecTimer } from "../../../functions/current-sec-timer.func";
-import {changeParticipant} from '../../../store/slices/table.slice'
+import {changeParticipant} from '../../../features/participants/slices/participants.slice'
 import { store } from "../../../store";
-import { chooseСurrentVisibleTrading } from "../../../store/slices/trading.slice";
+import { chooseСurrentVisibleTrading } from "../../../features/tradings/slices/tradings.slice";
 import { tradingParametr } from "../../../functions/index";
 import { useFetchService } from "../../../pages/traiding-page/hooks/useFetchService.hook";
 export type AppDispatch = typeof store.dispatch
