@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-export const useFetchService = (link:string):any[]|null => {
+export const useFetchService = (link:string):any => {
   const [serverData, setServerData] = useState(null);
   useEffect(() => {
     fetch(link)

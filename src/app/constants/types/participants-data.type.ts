@@ -1,4 +1,4 @@
-export type TParticipantsData={
+export type TParticipant={
     id:string,
     name:string,
     improveStandartActivites:string,
@@ -6,6 +6,5 @@ export type TParticipantsData={
     productionTime?:string,
     warranty?:string,
     actions?:string,
-    conditionsOfPayment?:string
-    
-}[]
+    conditionsOfPayment?:string   
+}

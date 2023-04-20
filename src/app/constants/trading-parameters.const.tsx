@@ -1,5 +1,3 @@
-import {TTradingParameters} from './types/index'
-
 export const tradingParameters = {
   name: "Параметры и требования",
   improveStandartActivites:

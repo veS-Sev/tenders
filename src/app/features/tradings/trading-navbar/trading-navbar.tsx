@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import {
   chooseСurrentVisibleTrading
 } from "../slices/tradings.slice";
-import { TradingsData } from "./types/tradings-data.type";
+import { TTradingData } from "../types/index";
 
 export const TradingNavbar = () => {
   const tradingsData: any = useFetchService("http://localhost:3001/tradings");
@@ -15,7 +15,7 @@ export const TradingNavbar = () => {
   return (
     <section className="trading-navbar">
       {tradingsData
-        ? (tradingsData as TradingsData).map((trading: any) => (
+        ? (tradingsData as TTradingData[]).map((trading: any) => (
             <button
               className="trading-navbar-button"
               key={trading.tradingId}
