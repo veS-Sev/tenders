@@ -142,5 +142,35 @@
             "improveStandartActivites": "да",
             "price": 0
         }
+    ],
+    "users":[
+        {
+            "userId": "P-0001",
+            "name": "Ракета",
+            "taxID": "987741258963",
+            "tel": "",
+            "adress":""
+        },
+        {
+            "userId": "P-0002",
+            "name": "Планета",
+            "taxID": "нет",
+            "tel": "9876543213537",
+            "adress":""
+        },
+        {
+            "userId": "P-0003",
+            "name": "Комета",
+            "taxID": "нет",
+            "tel": "123456789159",
+            "adress":""
+        },
+        {
+            "userId": "P-0004",
+            "name": "Комета",
+            "taxID": "245789456123",
+            "tel": "",
+            "adress":""
+        }
     ]
 }
