@@ -3,6 +3,7 @@ import { TParticipant } from "../../../constants/types/index";
 import {
   TTradingParameters,
   TTradingData,
+  TTradingParticipant,
 } from "../../../features/tradings/types/index";
 import { tradingParameters } from "../../../constants/trading-parameters.const";
 import { useSelector } from "react-redux";
@@ -14,38 +15,29 @@ export const TableBody = () => {
   const tradingsData: TTradingData[] = useFetchService(
     "http://localhost:3001/tradings"
   );
-  const participantsData: TParticipant[] = useFetchService(
-    "http://localhost:3001/participants"
-  );
   const activeParticipant = useSelector(
     (state: RootState) => state.activeParticipant.activeParticipant
   );
   const activeTradingSelector = useSelector(chooseСurrentVisibleTrading);
 
-  const tradingParticipants = () => {
-    if (tradingsData) {
+
+  const actualTradingParticipants = () => {
+    if (tradingsData === null) {
+      return [];
+    } else {
       const selectTrading = tradingsData.find(
         (x: TTradingData) =>
           x.tradingId ===
           activeTradingSelector.payload.activeTrading.activeTrading
       );
-      return selectTrading?.tradingParticipants
-        ? selectTrading.tradingParticipants
-        : [];
-    } else {
-      return [];
+      if (selectTrading === undefined) {
+        return [];
+      } else {
+        return selectTrading.tradingParticipants;
+      }
     }
   };
 
-  const actualTradingParticipants = tradingParticipants().map(
-    (item: string) => {
-      if (participantsData) {
-        return participantsData.find(
-          (participant: TParticipant) => item === participant.id
-        );
-      }
-    }
-  );
 
   return (
     <tbody>
@@ -55,13 +47,13 @@ export const TableBody = () => {
             {tradingParameters[parametr as keyof TTradingParameters]}
           </th>
           {actualTradingParticipants &&
-            actualTradingParticipants.map(
+            actualTradingParticipants().map(
               //any должен быть заменен на TParticipant
               (participant: any) => (
                 <td
                   className={
                     activeParticipant ===
-                    actualTradingParticipants.indexOf(participant)
+                    actualTradingParticipants().indexOf(participant)
                       ? "active participant-column"
                       : "participant-column"
                   }
