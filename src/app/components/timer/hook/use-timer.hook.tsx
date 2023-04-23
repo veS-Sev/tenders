@@ -12,7 +12,7 @@ export type AppDispatch = typeof store.dispatch
 
 export const useTimer = (
 ): TUseTimer => {
-  const tradingData: any = useFetchService("http://localhost:3001/tradings");
+  const tradingsData: any = useFetchService("http://localhost:3001/tradings");
   const dispatch = useDispatch();
   const [secRemaiming, setSec] = useState(initialTimerDuration.sec);
   const [minRemaiming, setMinRemaiming] = useState(initialTimerDuration.min);
@@ -27,9 +27,9 @@ export const useTimer = (
     const timerId = setInterval(() => {
       if (totalSecRemaiming === 0) { 
         // тут вызываем функцию редюсер, которая получает аргументом массив участников по текущему лоту
-        tradingData&&
+        tradingsData&&
         dispatch(changeParticipant(tradingParametr(
-          tradingData,
+          tradingsData,
           activeTradingSelector.payload.activeTrading.activeTrading,
           "tradingParticipants"
         )))

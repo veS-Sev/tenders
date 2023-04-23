@@ -1,3 +1,4 @@
+import { TTradingParticipant } from "./trading-participant.type";
 export type TTradingData = {
     tradingId: string;
     tradingName: string;
@@ -18,6 +19,7 @@ export type TTradingData = {
       actions?: string;
       conditionsOfPayment?: string;
     };
-    tradingParticipants: string[];
+    tradingParticipants: TTradingParticipant[];
   };
-  
+
+

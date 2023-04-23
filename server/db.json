@@ -20,7 +20,32 @@
                 "price": "Стоимость изготовления лота, руб",
                 "actions": "Действия"
             },
-            "tradingParticipants":["P-0001","P-0002","P-0003","P-0004"]
+            "tradingParticipants": [
+                {
+                    "id": "P-0001",
+                    "name": "Участник 1",
+                    "improveStandartActivites": "нет",
+                    "price": 75000
+                },
+                {
+                    "id": "P-0002",
+                    "name": "Участник 2",
+                    "improveStandartActivites": "да",
+                    "price": 105000
+                },
+                {
+                    "id": "P-0003",
+                    "name": "Участник 3",
+                    "improveStandartActivites": "да",
+                    "price": 100000
+                },
+                {
+                    "id": "P-0004",
+                    "name": "Участник 4",
+                    "improveStandartActivites": "нет",
+                    "price": 83500
+                }
+            ]
         },
         {
             "tradingId": "T-456159",
@@ -42,7 +67,26 @@
                 "price": "Стоимость изготовления лота, руб",
                 "actions": "Действия"
             },
-            "tradingParticipants":["P-0002","P-0003","P-0004"]
+            "tradingParticipants": [
+                {
+                    "id": "P-0001",
+                    "name": "Участник 1",
+                    "improveStandartActivites": "нет",
+                    "price": 125000
+                },
+                {
+                    "id": "P-0003",
+                    "name": "Участник 3",
+                    "improveStandartActivites": "да",
+                    "price": 107000
+                },
+                {
+                    "id": "P-0004",
+                    "name": "Участник 4",
+                    "improveStandartActivites": "нет",
+                    "price": 166500
+                }
+            ]
         },
         {
             "tradingId": "T-332259",
@@ -64,113 +108,109 @@
                 "price": "Стоимость изготовления лота, руб",
                 "actions": "Действия"
             },
-            "tradingParticipants":["P-0001","P-0002"]
+            "tradingParticipants": [
+                {
+                    "id": "P-0001",
+                    "name": "Участник 1",
+                    "improveStandartActivites": "нет",
+                    "price": 175000
+                },
+                {
+                    "id": "P-0004",
+                    "name": "Участник 4",
+                    "improveStandartActivites": "нет",
+                    "price": 823500
+                },
+                {
+                    "id": "P-0005",
+                    "name": "Участник 5",
+                    "improveStandartActivites": "да",
+                    "price": 0
+                }
+            
+        ]
+    },
+    {
+        "tradingId": "T-756779",
+        "tradingName": "Аппарат КРОКУС-1",
+        "startTrading": {
+            "year": "2023",
+            "month": "3",
+            "day": "2",
+            "hour": "10",
+            "min": "46",
+            "sec": "0"
         },
-        {
-            "tradingId": "T-756779",
-            "tradingName": "Аппарат КРОКУС-1",
-            "startTrading": {
-                "year": "2023",
-                "month": "3",
-                "day": "2",
-                "hour": "10",
-                "min": "46",
-                "sec": "0"
-            },
-            "tradingParamerts": {
-                "name": "Параметры и требования",
-                "improveStandartActivites": "Наличие комплекса мероприятий, повышающих стандарты качества изготовления",
-                "productionTime": "Срок изготовления лота",
-                "warranty": "Гарантийные обязательства",
-                "conditionsOfPayment": "Условия оплаты",
-                "price": "Стоимость изготовления лота, руб",
-                "actions": "Действия"
-            },
-            "tradingParticipants":["P-0001"]
+        "tradingParamerts": {
+            "name": "Параметры и требования",
+            "improveStandartActivites": "Наличие комплекса мероприятий, повышающих стандарты качества изготовления",
+            "productionTime": "Срок изготовления лота",
+            "warranty": "Гарантийные обязательства",
+            "conditionsOfPayment": "Условия оплаты",
+            "price": "Стоимость изготовления лота, руб",
+            "actions": "Действия"
         },
-        {
-            "tradingId": "T-111159",
-            "tradingName": "Аппарат ЛИГА",
-            "startTrading": {
-                "year": "2023",
-                "month": "3",
-                "day": "2",
-                "hour": "10",
-                "min": "46",
-                "sec": "0"
-            },
-            "tradingParamerts": {
-                "name": "Параметры и требования",
-                "improveStandartActivites": "Наличие комплекса мероприятий, повышающих стандарты качества изготовления",
-                "productionTime": "Срок изготовления лота",
-                "warranty": "Гарантийные обязательства",
-                "conditionsOfPayment": "Условия оплаты",
-                "price": "Стоимость изготовления лота, руб",
-                "actions": "Действия"
-            },
-            "tradingParticipans":[]
-        }
-    ],
-    "participants": [
-        {
-            "id": "P-0001",
-            "name": "Участник 1",
-            "improveStandartActivites": "нет",
-            "price": 75000
+        "tradingParticipants": [
+            {
+                "id": "P-0002",
+                "name": "Участник 2",
+                "improveStandartActivites": "да",
+                "warranty":"есть",
+                "price": 157000
+            }
+        ]
+    },
+    {
+        "tradingId": "T-111159",
+        "tradingName": "Аппарат ЛИГА",
+        "startTrading": {
+            "year": "2023",
+            "month": "3",
+            "day": "2",
+            "hour": "10",
+            "min": "46",
+            "sec": "0"
         },
-        {
-            "id": "P-0002",
-            "name": "Участник 2",
-            "improveStandartActivites": "да",
-            "price": 80000
+        "tradingParamerts": {
+            "name": "Параметры и требования",
+            "improveStandartActivites": "Наличие комплекса мероприятий, повышающих стандарты качества изготовления",
+            "productionTime": "Срок изготовления лота",
+            "warranty": "Гарантийные обязательства",
+            "conditionsOfPayment": "Условия оплаты",
+            "price": "Стоимость изготовления лота, руб",
+            "actions": "Действия"
         },
-        {
-            "id": "P-0003",
-            "name": "Участник 3",
-            "improveStandartActivites": "нет",
-            "price": 81500
-        },
-        {
-            "id": "P-0004",
-            "name": "Участник 4",
-            "improveStandartActivites": "да",
-            "price": 98500
-        },
-        {
-            "id": "P-0005",
-            "name": "Участник 5",
-            "improveStandartActivites": "да",
-            "price": 0
-        }
-    ],
-    "users":[
-        {
-            "userId": "P-0001",
-            "name": "Ракета",
-            "taxID": "987741258963",
-            "tel": "",
-            "adress":""
-        },
-        {
-            "userId": "P-0002",
-            "name": "Планета",
-            "taxID": "нет",
-            "tel": "9876543213537",
-            "adress":""
-        },
-        {
-            "userId": "P-0003",
-            "name": "Комета",
-            "taxID": "нет",
-            "tel": "123456789159",
-            "adress":""
-        },
-        {
-            "userId": "P-0004",
-            "name": "Комета",
-            "taxID": "245789456123",
-            "tel": "",
-            "adress":""
-        }
-    ]
+        "tradingParticipans": []
+    }
+],
+"users": [
+    {
+        "userId": "P-0001",
+        "name": "Ракета",
+        "taxID": "987741258963",
+        "tel": "",
+        "adress": ""
+    },
+    {
+        "userId": "P-0002",
+        "name": "Планета",
+        "taxID": "нет",
+        "tel": "9876543213537",
+        "adress": ""
+    },
+    {
+        "userId": "P-0003",
+        "name": "Комета",
+        "taxID": "нет",
+        "tel": "123456789159",
+        "adress": ""
+    },
+    {
+        "userId": "P-0004",
+        "name": "Комета",
+        "taxID": "245789456123",
+        "tel": "",
+        "adress": ""
+    }
+]
 }

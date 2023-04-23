@@ -1,15 +1,16 @@
 import { useState, useEffect } from "react";
 import "./table-head.scss";
-import { Timer } from "../../timer/timer";
+import { Timer } from "../../../components/timer/timer";
 import { timeHasPassed } from "../../../functions/index";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../store/types/roote-state.type";
 import { chooseСurrentVisibleTrading } from "../../../features/tradings/slices/tradings.slice";
 import { useFetchService } from "../../../pages/traiding-page/hooks/useFetchService.hook";
+import {TTradingData, TTradingParticipant } from "../../tradings/types";
 
 
 export const TableHead = () => {
-  const tradingData: any = useFetchService("http://localhost:3001/tradings");
+  const tradingsData: any = useFetchService("http://localhost:3001/tradings");
   const activeParticipant = useSelector(
     (state: RootState) => state.activeParticipant.activeParticipant
   );
@@ -17,12 +18,11 @@ export const TableHead = () => {
   const [auctionStarted, setAuctionStarted] = useState(false);
 
   const tradingParticipants = () => {
-    if (tradingData) {
-      return tradingData.find(
-        (x: any) => x.tradingId === activeTradingSelector.payload.activeTrading.activeTrading
+    if(tradingsData===null){return []}
+    else{
+      return tradingsData.find(
+        (x:TTradingData) => x.tradingId === activeTradingSelector.payload.activeTrading.activeTrading
       )["tradingParticipants"];
-    } else {
-      return [];
     }
   };
 
@@ -31,17 +31,17 @@ export const TableHead = () => {
       setAuctionStarted(true);
     }
   }, []);
-
+  
   return (
     <thead className="table-head">
       <tr>
         <th className="tablehead-th">Ход</th>
-        {tradingParticipants().map((participant: string) => (      
-          <th key={participant} data-participant={participant}>
+        {tradingParticipants().map((participant:TTradingParticipant) => (      
+          <th key={participant.id} data-participant={participant}>
             {auctionStarted &&
             activeParticipant === tradingParticipants().indexOf(participant) ? (
               <Timer
-                key={participant}
+                key={participant.id}
                 data-participant={participant}
         
               />
