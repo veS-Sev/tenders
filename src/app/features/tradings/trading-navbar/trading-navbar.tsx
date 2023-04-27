@@ -1,14 +1,12 @@
-import { useFetchService } from "../../../pages/traiding-page/hooks/useFetchService.hook";
-import { useDispatch } from "react-redux";
-import {
-  chooseСurrentVisibleTrading
-} from "../slices/tradings.slice";
+import { chooseСurrentVisibleTrading} from "../slices/tradings.slice";
 import { TTradingData } from "../types/index";
+import { useAppDispatch } from "../../../hooks";
+import { useAppSelector } from "../../../hooks";
+import { selectTradingData } from "../slices/tradings-data.slice";
 
 export const TradingNavbar = () => {
-  const tradingsData: any = useFetchService("http://localhost:3001/tradings");
-
-  const dispatch = useDispatch();
+const tradingsData:TTradingData[] = useAppSelector(state=> selectTradingData(state))
+  const dispatch = useAppDispatch();
   const tradingNavButtonHandler = (runningTradingId: string) => {
     dispatch(chooseСurrentVisibleTrading(runningTradingId));
   };
