@@ -1,5 +1,5 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { client } from "../../../api/client";
+import {createSlice } from "@reduxjs/toolkit";
+
 
 export const activeTradingReducer = createSlice({
   name: "activeTrading",
@@ -16,10 +16,3 @@ export const activeTradingReducer = createSlice({
 });
 export const { chooseСurrentVisibleTrading } = activeTradingReducer.actions;
 export default activeTradingReducer.reducer;
-
-
-export const fetchTradings = createAsyncThunk('tradings/fetchTradings', async () => {
-  const response = await client.get('http://localhost:3001/tradings');
-  console.log('response',response)
-  return response.data
-})
