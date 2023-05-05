@@ -6,14 +6,14 @@ import { TTradingParticipant } from "../../tradings/types";
 import { TTradingTableProp } from "../types";
 import { dateConversion } from "../../tradings/functions/date-conversion.func";
 import { activeParticipantByIndex } from "../../../functions";
-import { changeActiveParticipant } from "../../../features/participants/slices/participants.slice";
+import { changeActiveParticipant } from "../../participants/slices/active-timer-participant.slice";
 
 export const TableHead = ({ trading }: TTradingTableProp) => {
   const activeTimerParticipant = useAppSelector(
     (state) => state.activeTimerParticipant.id
   );
   const dispatch = useAppDispatch();
-  
+
   const startOfTrading = dateConversion(trading.startOfTrading);
 
   const tradingParticipants = trading["tradingParticipants"];
