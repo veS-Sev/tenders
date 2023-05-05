@@ -1,15 +1,9 @@
-import { TTradingParticipant } from "./trading-participant.type";
+import { TTradingParticipant, TStartOfTrading,TStartOfTradingData } from "./index";
+
 export type TTradingData = {
     tradingId: string;
     tradingName: string;
-    startTrading: {
-      year: string;
-      month: string;
-      day: string;
-      hour: string;
-      min: string;
-      sec: string;
-    };
+    startOfTrading: TStartOfTradingData;
     tradingParamerts: {
       name: string;
       improveStandartActivites?: string;

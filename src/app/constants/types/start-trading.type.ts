@@ -1,4 +1,4 @@
-export type TStartTrading= {
+export type TStartOfTrading= {
     year:number|string;
     month:number|string;
     day:number|string;

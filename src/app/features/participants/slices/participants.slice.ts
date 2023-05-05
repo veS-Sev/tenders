@@ -1,28 +1,16 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { currentActiveParticipant } from "../../../functions/current-active-participant.funс";
-import { client } from "../../../api/client";
+import { createSlice} from "@reduxjs/toolkit";
 
-const participantReducer = createSlice({
-  name: "participants",
+const activeTimerParticipantSlice = createSlice({
+  name: "activeTimerParticipant",
   initialState: {
-    participants: {
-      status: "idle",
-      data: [],
-    },
-    activeParticipant: currentActiveParticipant(),
+    id:null
   },
   // В reducers перечисляется набор методов, который затем будем использовать
   reducers: {
-    changeParticipant: (state, action) => {
-      state.activeParticipant = currentActiveParticipant(action.payload);
+    changeActiveParticipant(state, action){
+      state.id=action.payload
     },
   },
 });
-export const { changeParticipant } = participantReducer.actions;
-export default participantReducer.reducer;
-
-export const fetchParticipants=createAsyncThunk('',async()=>{
-  const response=await client.get('http://localhost:3001/participants')
-  console.log('response participants',response)
-  return response.data
-})
+export const { changeActiveParticipant } = activeTimerParticipantSlice.actions;
+export default activeTimerParticipantSlice.reducer;

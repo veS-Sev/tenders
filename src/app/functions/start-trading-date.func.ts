@@ -1,15 +1,15 @@
-import { startTradingConst } from "../constants/start-trading.const";
+import { TStartOfTrading} from "../features/tradings/types";
 
-export const startTradingDate = (): number => {
-  
-  return Number(
-    new Date(
-      startTradingConst.year,
-      (startTradingConst.month-1),
-      startTradingConst.day,
-      startTradingConst.hour,
-      startTradingConst.min,
-      startTradingConst.sec
-    )
-  );
-};
+//переводим дату начала в миллисекунды
+export const startTradingDate = (startOfTrading: TStartOfTrading)=>{
+    let { year, month, day, hour, min } = startOfTrading;
+    return Number(
+      new Date(
+        year,
+        (month-1),
+        day,
+        hour,
+        min
+      )
+    );
+  };

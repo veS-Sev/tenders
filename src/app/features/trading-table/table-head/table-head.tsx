@@ -1,22 +1,33 @@
-import { useState, useEffect } from "react";
 import "./table-head.scss";
+import { useEffect } from "react";
 import { Timer } from "../../../components/timer/timer";
-import { timeHasPassed } from "../../../functions/index";
-import { useAppSelector } from "../../../hooks";
+import { useAppSelector, useAppDispatch } from "../../../hooks";
 import { TTradingParticipant } from "../../tradings/types";
 import { TTradingTableProp } from "../types";
+import { dateConversion } from "../../tradings/functions/date-conversion.func";
+import { activeParticipantByIndex } from "../../../functions";
+import { changeActiveParticipant } from "../../../features/participants/slices/participants.slice";
 
 export const TableHead = ({ trading }: TTradingTableProp) => {
-  const activeParticipant = useAppSelector(
-    (state) => state.activeParticipant.activeParticipant
+  const activeTimerParticipant = useAppSelector(
+    (state) => state.activeTimerParticipant.id
   );
-  const [auctionStarted, setAuctionStarted] = useState(false);
+  const dispatch = useAppDispatch();
+  
+  const startOfTrading = dateConversion(trading.startOfTrading);
+
   const tradingParticipants = trading["tradingParticipants"];
 
+  const idOfActiveParticipant = () => {
+    const idexOfParticipant = activeParticipantByIndex(
+      tradingParticipants,
+      startOfTrading
+    );
+    return tradingParticipants[idexOfParticipant].id;
+  };
+
   useEffect(() => {
-    if (timeHasPassed() > 0) {
-      setAuctionStarted(true);
-    }
+    dispatch(changeActiveParticipant(idOfActiveParticipant()));
   }, []);
   return (
     <thead className="table-head">
@@ -24,8 +35,9 @@ export const TableHead = ({ trading }: TTradingTableProp) => {
         <th className="tablehead-th">Ход</th>
         {tradingParticipants.map((participant: TTradingParticipant) => (
           <th key={participant.id} data-participant={participant.id}>
-            {auctionStarted &&
-            activeParticipant === tradingParticipants.indexOf(participant) ? (
+            {
+            participant.id===activeTimerParticipant
+            ? (
               <Timer key={participant.id} data-participant={participant} />
             ) : null}
           </th>

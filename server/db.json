@@ -3,13 +3,12 @@
         {
             "tradingId": "T-789456",
             "tradingName": "Аппарат ЛОТОС-12SW",
-            "startTrading": {
+            "startOfTrading": {
                 "year": "2023",
-                "month": "4",
-                "day": "6",
-                "hour": "18",
-                "min": "08",
-                "sec": "0"
+                "month": "06",
+                "day": "29",
+                "hour": "00",
+                "min": "08"            
             },
             "tradingParamerts": {
                 "name": "Параметры и требования",
@@ -50,13 +49,13 @@
         {
             "tradingId": "T-456159",
             "tradingName": "Аппарат ПЕГАС-142",
-            "startTrading": {
+            "startOfTrading": {
                 "year": "2023",
                 "month": "3",
                 "day": "2",
                 "hour": "10",
-                "min": "46",
-                "sec": "0"
+                "min": "46"
+                
             },
             "tradingParamerts": {
                 "name": "Параметры и требования",
@@ -91,13 +90,13 @@
         {
             "tradingId": "T-332259",
             "tradingName": "Аппарат ГЕФЕСТ",
-            "startTrading": {
+            "startOfTrading": {
                 "year": "2023",
                 "month": "3",
                 "day": "2",
                 "hour": "10",
-                "min": "46",
-                "sec": "0"
+                "min": "46"
+               
             },
             "tradingParamerts": {
                 "name": "Параметры и требования",
@@ -133,13 +132,13 @@
     {
         "tradingId": "T-756779",
         "tradingName": "Аппарат КРОКУС-1",
-        "startTrading": {
+        "startOfTrading": {
             "year": "2023",
             "month": "3",
             "day": "2",
             "hour": "10",
-            "min": "46",
-            "sec": "0"
+            "min": "46"
+            
         },
         "tradingParamerts": {
             "name": "Параметры и требования",
@@ -163,13 +162,13 @@
     {
         "tradingId": "T-111159",
         "tradingName": "Аппарат ЛИГА",
-        "startTrading": {
+        "startOfTrading": {
             "year": "2023",
             "month": "3",
             "day": "2",
             "hour": "10",
-            "min": "46",
-            "sec": "0"
+            "min": "46"
+            
         },
         "tradingParamerts": {
             "name": "Параметры и требования",
