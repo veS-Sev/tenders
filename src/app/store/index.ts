@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 // import { setupListeners } from '@reduxjs/toolkit/query'
 // import { tradingsApi } from '../features/tradings/api/tradings.api'
-import activeTimerParticipantSlice from "../features/participants/slices/participants.slice";
+import activeTimerParticipantSlice from "../features/participants/slices/active-timer-participant.slice";
 import  activeTradingReducer  from "../features/tradings/slices/tradings.slice";
 import tradingsDataReducer from "../features/tradings/slices/tradings-data.slice"
 export const store= configureStore({

@@ -3,7 +3,7 @@ import { useAppDispatch, useAppSelector } from "../../../hooks";
 import { initialTimerDuration } from "../../../constants/initial-timer-duration.const";
 import { TUseTimer } from "./type/use-timer.type";
 import { currentSecTimer } from "../../../functions/current-sec-timer.func";
-import { changeActiveParticipant } from "../../../features/participants/slices/participants.slice";
+import { changeActiveParticipant } from "../../../features/participants/slices/active-timer-participant.slice";
 import { selectTradingById } from "../../../features/tradings/slices/tradings-data.slice";
 import { dateConversion } from "../../../features/tradings/functions/date-conversion.func";
 import { activeParticipantByIndex } from "../../../functions/index";
