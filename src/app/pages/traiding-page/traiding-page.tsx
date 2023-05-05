@@ -3,21 +3,14 @@ import { ColorRing } from "react-loader-spinner";
 import { TradingNavbar } from "../../features/tradings/trading-navbar/trading-navbar";
 import { TableContainer } from "../../features/trading-table/table-container";
 import { useEffect } from "react";
-import { fetchTradingsData } from "../../features/tradings/slices/tradings-data.slice";
+import {
+  fetchTradingsData} from "../../features/tradings/slices/tradings-data.slice";
 import { useAppSelector } from "../../hooks/useAppSelector.hook";
 import { useAppDispatch } from "../../hooks";
-import {
-  selectTradingById,
-  selectTradingLoadingStatus,
+import {selectTradingLoadingStatus
 } from "../../features/tradings/slices/tradings-data.slice";
 
 export const TraidingPage = () => {
-  const activeTrading = useAppSelector(
-    (state) => state.activeTrading.activeTrading
-  );
-  const tradingData = useAppSelector((state) =>
-    selectTradingById(state, activeTrading)
-  );
   const dispatch = useAppDispatch();
   const loadingStatus = useAppSelector((state) =>
     selectTradingLoadingStatus(state)
@@ -27,6 +20,7 @@ export const TraidingPage = () => {
       dispatch(fetchTradingsData());
     }
   }, [loadingStatus, dispatch]);
+
   return (
     <>
       {loadingStatus === "loading" && (
@@ -43,16 +37,6 @@ export const TraidingPage = () => {
       {loadingStatus === "succeeded" && (
         <>
           <TradingNavbar />
-          <h1 className="traiding-name">
-            Ход торгов:
-            <span>
-              Тестовые торги на
-              {tradingData.tradingName}
-              (Дата, время. Текущие?)
-            </span>
-          </h1>
-          <div className="traiding-notice">Уважаемые участники, во время ходы вы можете изменить параметры
-            торгов, указанных в таблице:</div>
           <TableContainer />
         </>
       )}
@@ -60,3 +44,4 @@ export const TraidingPage = () => {
     </>
   );
 };
+

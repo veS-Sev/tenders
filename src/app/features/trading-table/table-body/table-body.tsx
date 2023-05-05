@@ -1,4 +1,5 @@
 import "./table-body.scss";
+import {useAppSelector} from '../../../hooks'
 import {
   TTradingParameters,
   TTradingData,
@@ -9,9 +10,9 @@ import { RootState } from "../../../store/types/roote-state.type";
 import {TTradingTableProp} from "../types";
 
 export const TableBody = ({trading}:TTradingTableProp) => {
-  const activeParticipant = useSelector(
-    (state: RootState) => state.activeParticipant.activeParticipant
-  );
+  // const activeTimerParticipant = useAppSelector(
+  //   (state: RootState) => state.activeTimerParticipant.id
+  // );
 
   const tradingParticipants = trading["tradingParticipants"];
   return (
@@ -25,12 +26,12 @@ export const TableBody = ({trading}:TTradingTableProp) => {
               //должен быть установлен тип
               (participant:any) => (
                 <td
-                  className={
-                    activeParticipant ===
-                    tradingParticipants.indexOf(participant)
-                      ? "active participant-column"
-                      : "participant-column"
-                  }
+                  // className={
+                  //   activeParticipant ===
+                  //   tradingParticipants.indexOf(participant)
+                  //     ? "active participant-column"
+                  //     : "participant-column"
+                  // }
                   key={participant.id}
                 >
                   {participant[parametr as keyof TTradingParameters]}
