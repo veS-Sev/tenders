@@ -8,15 +8,18 @@ import { dateConversion } from "../../tradings/functions/date-conversion.func";
 import { activeParticipantByIndex } from "../../../functions";
 import { changeActiveParticipant } from "../../participants/slices/active-timer-participant.slice";
 
-export const TableHead = ({ trading }: TTradingTableProp) => {
+export const TableHead = (
+  { trading }: TTradingTableProp
+  ) => {
   const activeTimerParticipant = useAppSelector(
     (state) => state.activeTimerParticipant.id
   );
+ 
   const dispatch = useAppDispatch();
 
   const startOfTrading = dateConversion(trading.startOfTrading);
 
-  const tradingParticipants = trading["tradingParticipants"];
+  const tradingParticipants = trading.tradingParticipants
 
   const idOfActiveParticipant = () => {
     const idexOfParticipant = activeParticipantByIndex(
@@ -29,7 +32,9 @@ export const TableHead = ({ trading }: TTradingTableProp) => {
   useEffect(() => {
     dispatch(changeActiveParticipant(idOfActiveParticipant()));
   }, []);
+
   return (
+
     <thead className="table-head">
       <tr>
         <th className="tablehead-th">Ход</th>
