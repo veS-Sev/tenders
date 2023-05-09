@@ -2,20 +2,17 @@ import "./table-body.scss";
 import {useAppSelector} from '../../../hooks'
 import {
   TTradingParameters,
-  TTradingData,
-  TTradingParticipant,
 } from "../../../features/tradings/types/index";
-import { useSelector } from "react-redux";
-import { RootState } from "../../../store/types/roote-state.type";
 import {TTradingTableProp} from "../types";
 
 export const TableBody = ({trading}:TTradingTableProp) => {
-  // const activeTimerParticipant = useAppSelector(
-  //   (state: RootState) => state.activeTimerParticipant.id
-  // );
+  const activeTimerParticipant = useAppSelector(
+    (state) => state.activeTimerParticipant.id
+  );
 
-  const tradingParticipants = trading["tradingParticipants"];
+  const tradingParticipants = trading.tradingParticipants;
   return (
+    <>
     <tbody>
       {Object.getOwnPropertyNames(trading.tradingParamerts).map((parametr: string) => (
         <tr key={parametr}>
@@ -26,12 +23,12 @@ export const TableBody = ({trading}:TTradingTableProp) => {
               //должен быть установлен тип
               (participant:any) => (
                 <td
-                  // className={
-                  //   activeParticipant ===
-                  //   tradingParticipants.indexOf(participant)
-                  //     ? "active participant-column"
-                  //     : "participant-column"
-                  // }
+                  className={
+                    activeTimerParticipant ===
+                    tradingParticipants.indexOf(participant)
+                      ? "active participant-column"
+                      : "participant-column"
+                  }
                   key={participant.id}
                 >
                   {participant[parametr as keyof TTradingParameters]}
@@ -40,6 +37,7 @@ export const TableBody = ({trading}:TTradingTableProp) => {
             )}
         </tr>
       ))}
-    </tbody>
+    </tbody></>
   );
 };
+
