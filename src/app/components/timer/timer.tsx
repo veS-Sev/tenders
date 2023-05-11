@@ -1,15 +1,16 @@
 import "./timer.scss";
+import {memo} from 'react';
 import { useTimer } from "./hook/use-timer.hook";
 import { BsHourglassSplit } from "react-icons/bs";
-import {TStartOfTrading} from '../../features/tradings/types'
+import {TStartOfTrading, TTradingParticipant} from '../../features/tradings/types'
 
+const BsHourglass=memo(BsHourglassSplit);
 
 export type TTimerProp={
-  startOfTrading:TStartOfTrading
+  tradingParticipants:TTradingParticipant[]
 }
 
 export const Timer = (
-  // {startOfTrading}:TTimerProp
   ) => {
   const { secRemaiming, minRemaiming, hourRemaiming} =
   useTimer();
@@ -19,7 +20,7 @@ export const Timer = (
       <div id="hourRemaiming">{String(hourRemaiming).padStart(2, "0")}:</div>
       <div id="minRemaiming">{String(minRemaiming).padStart(2, "0")}:</div>
       <div id="secRemaiming">{String(secRemaiming).padStart(2, "0")}</div>
-      <BsHourglassSplit />
+      <BsHourglass />
     </div>
   );
 };

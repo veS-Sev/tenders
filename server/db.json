@@ -51,10 +51,10 @@
             "tradingName": "Аппарат ПЕГАС-142",
             "startOfTrading": {
                 "year": "2023",
-                "month": "3",
-                "day": "2",
-                "hour": "10",
-                "min": "46"
+                "month": "5",
+                "day": "11",
+                "hour": "23",
+                "min": "25"
                 
             },
             "tradingParamerts": {
@@ -73,12 +73,7 @@
                     "improveStandartActivites": "нет",
                     "price": 125000
                 },
-                {
-                    "id": "P-0003",
-                    "name": "Участник 3",
-                    "improveStandartActivites": "да",
-                    "price": 107000
-                },
+
                 {
                     "id": "P-0004",
                     "name": "Участник 4",
@@ -92,10 +87,10 @@
             "tradingName": "Аппарат ГЕФЕСТ",
             "startOfTrading": {
                 "year": "2023",
-                "month": "3",
-                "day": "2",
-                "hour": "10",
-                "min": "46"
+                "month": "5",
+                "day": "11",
+                "hour": "23",
+                "min": "25"
                
             },
             "tradingParamerts": {
@@ -115,10 +110,10 @@
                     "price": 175000
                 },
                 {
-                    "id": "P-0004",
-                    "name": "Участник 4",
-                    "improveStandartActivites": "нет",
-                    "price": 823500
+                    "id": "P-0003",
+                    "name": "Участник 3",
+                    "improveStandartActivites": "да",
+                    "price": 107000
                 },
                 {
                     "id": "P-0005",
@@ -134,10 +129,10 @@
         "tradingName": "Аппарат КРОКУС-1",
         "startOfTrading": {
             "year": "2023",
-            "month": "3",
-            "day": "2",
-            "hour": "10",
-            "min": "46"
+            "month": "5",
+            "day": "11",
+            "hour": "23",
+            "min": "25"
             
         },
         "tradingParamerts": {
@@ -156,6 +151,12 @@
                 "improveStandartActivites": "да",
                 "warranty":"есть",
                 "price": 157000
+            },
+            {
+                "id": "P-0004",
+                "name": "Участник 4",
+                "improveStandartActivites": "нет",
+                "price": 823500
             }
         ]
     },
@@ -164,10 +165,10 @@
         "tradingName": "Аппарат ЛИГА",
         "startOfTrading": {
             "year": "2023",
-            "month": "3",
-            "day": "2",
-            "hour": "10",
-            "min": "46"
+            "month": "5",
+            "day": "11",
+            "hour": "23",
+            "min": "25"
             
         },
         "tradingParamerts": {
