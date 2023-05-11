@@ -31,7 +31,7 @@ export const TableHead = (
 
   useEffect(() => {
     dispatch(changeActiveParticipant(idOfActiveParticipant()));
-  }, []);
+  }, [tradingParticipants]);
 
   return (
 

@@ -11,6 +11,7 @@ export const TableBody = ({trading}:TTradingTableProp) => {
   );
 
   const tradingParticipants = trading.tradingParticipants;
+
   return (
     <>
     <tbody>
@@ -25,7 +26,7 @@ export const TableBody = ({trading}:TTradingTableProp) => {
                 <td
                   className={
                     activeTimerParticipant ===
-                    tradingParticipants.indexOf(participant)
+                    (participant.id)
                       ? "active participant-column"
                       : "participant-column"
                   }
