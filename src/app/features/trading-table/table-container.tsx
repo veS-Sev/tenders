@@ -30,7 +30,7 @@ export const TableContainer = () => {
         setDateReached(false);
       }
     }
-  }, [tradingData]);
+  }, [tradingData,tradingParticipants]);
   return (
     <>
       <h1 className="traiding-table-name">
