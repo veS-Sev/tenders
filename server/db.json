@@ -1,16 +1,16 @@
 {
-    "tradings": [
+    "tenders": [
         {
-            "tradingId": "T-789456",
-            "tradingName": "Аппарат ЛОТОС-12SW",
-            "startOfTrading": {
+            "id": "T-789456",
+            "tenderName": "Аппарат ЛОТОС-12SW",
+            "startOfTender": {
                 "year": "2023",
                 "month": "06",
                 "day": "29",
                 "hour": "00",
-                "min": "08"            
+                "min": "08"
             },
-            "tradingParamerts": {
+            "tenderParamerts": {
                 "name": "Параметры и требования",
                 "improveStandartActivites": "Наличие комплекса мероприятий, повышающих стандарты качества изготовления",
                 "productionTime": "Срок изготовления лота",
@@ -19,7 +19,7 @@
                 "price": "Стоимость изготовления лота, руб",
                 "actions": "Действия"
             },
-            "tradingParticipants": [
+            "tenderParticipants": [
                 {
                     "id": "P-0001",
                     "name": "Участник 1",
@@ -47,17 +47,16 @@
             ]
         },
         {
-            "tradingId": "T-456159",
-            "tradingName": "Аппарат ПЕГАС-142",
-            "startOfTrading": {
+            "id": "T-456159",
+            "tenderName": "Аппарат ПЕГАС-142",
+            "startOfTender": {
                 "year": "2023",
                 "month": "5",
                 "day": "11",
                 "hour": "23",
                 "min": "25"
-                
             },
-            "tradingParamerts": {
+            "tenderParamerts": {
                 "name": "Параметры и требования",
                 "improveStandartActivites": "Наличие комплекса мероприятий, повышающих стандарты качества изготовления",
                 "productionTime": "Срок изготовления лота",
@@ -66,14 +65,13 @@
                 "price": "Стоимость изготовления лота, руб",
                 "actions": "Действия"
             },
-            "tradingParticipants": [
+            "tenderParticipants": [
                 {
                     "id": "P-0001",
                     "name": "Участник 1",
                     "improveStandartActivites": "нет",
                     "price": 125000
                 },
-
                 {
                     "id": "P-0004",
                     "name": "Участник 4",
@@ -83,17 +81,16 @@
             ]
         },
         {
-            "tradingId": "T-332259",
-            "tradingName": "Аппарат ГЕФЕСТ",
-            "startOfTrading": {
+            "id": "T-332259",
+            "tenderName": "Аппарат ГЕФЕСТ",
+            "startOfTender": {
                 "year": "2023",
                 "month": "5",
                 "day": "11",
                 "hour": "23",
                 "min": "25"
-               
             },
-            "tradingParamerts": {
+            "tenderParamerts": {
                 "name": "Параметры и требования",
                 "improveStandartActivites": "Наличие комплекса мероприятий, повышающих стандарты качества изготовления",
                 "productionTime": "Срок изготовления лота",
@@ -102,7 +99,7 @@
                 "price": "Стоимость изготовления лота, руб",
                 "actions": "Действия"
             },
-            "tradingParticipants": [
+            "tenderParticipants": [
                 {
                     "id": "P-0001",
                     "name": "Участник 1",
@@ -121,96 +118,115 @@
                     "improveStandartActivites": "да",
                     "price": 0
                 }
-            
-        ]
-    },
-    {
-        "tradingId": "T-756779",
-        "tradingName": "Аппарат КРОКУС-1",
-        "startOfTrading": {
-            "year": "2023",
-            "month": "5",
-            "day": "11",
-            "hour": "23",
-            "min": "25"
-            
+            ]
         },
-        "tradingParamerts": {
-            "name": "Параметры и требования",
-            "improveStandartActivites": "Наличие комплекса мероприятий, повышающих стандарты качества изготовления",
-            "productionTime": "Срок изготовления лота",
-            "warranty": "Гарантийные обязательства",
-            "conditionsOfPayment": "Условия оплаты",
-            "price": "Стоимость изготовления лота, руб",
-            "actions": "Действия"
-        },
-        "tradingParticipants": [
-            {
-                "id": "P-0002",
-                "name": "Участник 2",
-                "improveStandartActivites": "да",
-                "warranty":"есть",
-                "price": 157000
+        {
+            "id": "T-756779",
+            "tenderName": "Аппарат КРОКУС-1",
+            "startOfTender": {
+                "year": "2023",
+                "month": "5",
+                "day": "11",
+                "hour": "23",
+                "min": "25"
             },
-            {
-                "id": "P-0004",
-                "name": "Участник 4",
-                "improveStandartActivites": "нет",
-                "price": 823500
-            }
-        ]
-    },
-    {
-        "tradingId": "T-111159",
-        "tradingName": "Аппарат ЛИГА",
-        "startOfTrading": {
-            "year": "2023",
-            "month": "5",
-            "day": "11",
-            "hour": "23",
-            "min": "25"
-            
+            "tenderParamerts": {
+                "name": "Параметры и требования",
+                "improveStandartActivites": "Наличие комплекса мероприятий, повышающих стандарты качества изготовления",
+                "productionTime": "Срок изготовления лота",
+                "warranty": "Гарантийные обязательства",
+                "conditionsOfPayment": "Условия оплаты",
+                "price": "Стоимость изготовления лота, руб",
+                "actions": "Действия"
+            },
+            "tenderParticipants": [
+                {
+                    "id": "P-0002",
+                    "name": "Участник 2",
+                    "improveStandartActivites": "да",
+                    "warranty": "есть",
+                    "price": 157000
+                },
+                {
+                    "id": "P-0004",
+                    "name": "Участник 4",
+                    "improveStandartActivites": "нет",
+                    "price": 823500
+                }
+            ]
         },
-        "tradingParamerts": {
-            "name": "Параметры и требования",
-            "improveStandartActivites": "Наличие комплекса мероприятий, повышающих стандарты качества изготовления",
-            "productionTime": "Срок изготовления лота",
-            "warranty": "Гарантийные обязательства",
-            "conditionsOfPayment": "Условия оплаты",
-            "price": "Стоимость изготовления лота, руб",
-            "actions": "Действия"
+        {
+            "id": "T-111159",
+            "tenderName": "Аппарат ЛИГА",
+            "startOfTender": {
+                "year": "2023",
+                "month": "5",
+                "day": "11",
+                "hour": "23",
+                "min": "25"
+            },
+            "tenderParamerts": {
+                "name": "Параметры и требования",
+                "improveStandartActivites": "Наличие комплекса мероприятий, повышающих стандарты качества изготовления",
+                "productionTime": "Срок изготовления лота",
+                "warranty": "Гарантийные обязательства",
+                "conditionsOfPayment": "Условия оплаты",
+                "price": "Стоимость изготовления лота, руб",
+                "actions": "Действия"
+            },
+            "tenderParticipans": []
+        }
+    ],
+    "tendersList": [
+        {
+            "id": "T-332259",
+            "tenderName": "Аппарат ГЕФЕСТ"
         },
-        "tradingParticipans": []
-    }
-],
-"users": [
-    {
-        "userId": "P-0001",
-        "name": "Ракета",
-        "taxID": "987741258963",
-        "tel": "",
-        "adress": ""
-    },
-    {
-        "userId": "P-0002",
-        "name": "Планета",
-        "taxID": "нет",
-        "tel": "9876543213537",
-        "adress": ""
-    },
-    {
-        "userId": "P-0003",
-        "name": "Комета",
-        "taxID": "нет",
-        "tel": "123456789159",
-        "adress": ""
-    },
-    {
-        "userId": "P-0004",
-        "name": "Комета",
-        "taxID": "245789456123",
-        "tel": "",
-        "adress": ""
-    }
-]
+        {
+            "id": "T-111159",
+            "tenderName": "Аппарат ЛИГА"
+        },
+        {
+            "id": "T-789456",
+            "tenderName": "Аппарат ЛОТОС-12SW"
+        },
+        {
+            "id": "T-456159",
+            "tenderName": "Аппарат ПЕГАС-142"
+        },
+        {
+            "id": "T-756779",
+            "tenderName": "Аппарат КРОКУС-1"
+        }
+    ],
+    "users": [
+        {
+            "userId": "P-0001",
+            "name": "Ракета",
+            "taxID": "987741258963",
+            "tel": "",
+            "adress": ""
+        },
+        {
+            "userId": "P-0002",
+            "name": "Планета",
+            "taxID": "нет",
+            "tel": "9876543213537",
+            "adress": ""
+        },
+        {
+            "userId": "P-0003",
+            "name": "Комета",
+            "taxID": "нет",
+            "tel": "123456789159",
+            "adress": ""
+        },
+        {
+            "userId": "P-0004",
+            "name": "Комета",
+            "taxID": "245789456123",
+            "tel": "",
+            "adress": ""
+        }
+    ]
 }
