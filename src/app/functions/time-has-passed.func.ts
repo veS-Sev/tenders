@@ -1,10 +1,10 @@
-import { startTradingDate } from "./start-trading-date.func";
-import {TStartOfTrading} from '../features/tradings/types'
+import { startTenderDate } from "./start-tender-date.func";
+import {TStartOfTender} from '../features/tenders/types'
 
 // Узнаем сколько времени прошло с начала торгов в миллисекундах, если timeHasPassed < 0, то торги не начались
-export const timeHasPassed = (startOfTrading: TStartOfTrading) => {
+export const timeHasPassed = (startOfTender: TStartOfTender) => {
     return Number(new Date())
-    - startTradingDate(startOfTrading)
+    - startTenderDate(startOfTender)
 };
 
 

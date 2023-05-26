@@ -1,18 +1,18 @@
 import { configureStore } from "@reduxjs/toolkit";
 // import { setupListeners } from '@reduxjs/toolkit/query'
-// import { tradingsApi } from '../features/tradings/api/tradings.api'
+// import { tendersApi } from '../features/tenders/api/tenders.api'
 import activeTimerParticipantSlice from "../features/participants/slices/active-timer-participant.slice";
-import  activeTradingReducer  from "../features/tradings/slices/tradings.slice";
-import tradingsDataReducer from "../features/tradings/slices/tradings-data.slice"
+import  activeTenderReducer  from "../features/tenders/tender-navbar/tenders-list.slice";
+import tendersDataReducer from "../features/tenders/slices/tenders-data.slice"
 export const store= configureStore({
     reducer:{
         activeTimerParticipant:activeTimerParticipantSlice,
-        activeTrading:activeTradingReducer,
-        tradingsData:tradingsDataReducer
-        // [tradingsApi.reducerPath]: tradingsApi.reducer
+        activeTender:activeTenderReducer,
+        tendersData:tendersDataReducer,
+        // [tendersApi.reducerPath]: tendersApi.reducer
     },
     // middleware: (getDefaultMiddleware) =>
-    // getDefaultMiddleware().concat(tradingsApi.middleware)
+    // getDefaultMiddleware().concat(tendersApi.middleware)
 })
 // setupListeners(store.dispatch)
 

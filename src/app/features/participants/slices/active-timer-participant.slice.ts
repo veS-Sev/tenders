@@ -5,7 +5,6 @@ const activeTimerParticipantSlice = createSlice({
   initialState: {
     id:null
   },
-  // В reducers перечисляется набор методов, который затем будем использовать
   reducers: {
     changeActiveParticipant(state, action){
       state.id=action.payload

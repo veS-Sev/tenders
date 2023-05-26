@@ -4,33 +4,33 @@ import { initialTimerDuration } from "../../../constants/initial-timer-duration.
 import { TUseTimer } from "./type/use-timer.type";
 import { currentSecTimer } from "../../../functions/current-sec-timer.func";
 import { changeActiveParticipant } from "../../../features/participants/slices/active-timer-participant.slice";
-import { selectTradingById } from "../../../features/tradings/slices/tradings-data.slice";
-import { dateConversion } from "../../../features/tradings/functions/date-conversion.func";
+import { selectTenderById } from "../../../features/tenders/slices/tenders-data.slice";
+import { dateConversion } from "../../../features/tenders/functions/date-conversion.func";
 import { activeParticipantByIndex } from "../../../functions/index";
 
 export const useTimer = (): TUseTimer => {
-  const activeTrading = useAppSelector(
-    (state) => state.activeTrading.activeTrading
+  const activeTender = useAppSelector(
+    (state) => state.activeTender.activeTender
   );
-  const tradingData = useAppSelector((state) =>
-    selectTradingById(state, activeTrading)
+  const tenderData = useAppSelector((state) =>
+    selectTenderById(state, activeTender)
   );
-  const startOfTrading = dateConversion(tradingData.startOfTrading);
+  const startOfTender = dateConversion(tenderData.startOfTender);
   const dispatch = useAppDispatch();
   const [secRemaiming, setSec] = useState(initialTimerDuration.sec);
   const [minRemaiming, setMinRemaiming] = useState(initialTimerDuration.min);
   const [hourRemaiming, setHourRemaiming] = useState(initialTimerDuration.hour);
 
-  const totalSecRemaiming = currentSecTimer(startOfTrading);
+  const totalSecRemaiming = currentSecTimer(startOfTender);
 
-  const tradingParticipants = tradingData.tradingParticipants;
+  const tenderParticipants = tenderData.tenderParticipants;
 
   const idOfActiveParticipant = () => {
     const idexOfParticipant = activeParticipantByIndex(
-      tradingParticipants,
-      startOfTrading
+      tenderParticipants,
+      startOfTender
     );
-    return tradingParticipants[idexOfParticipant].id;
+    return tenderParticipants[idexOfParticipant].id;
   };
 
   const curentMinut =
@@ -40,7 +40,7 @@ export const useTimer = (): TUseTimer => {
       if (totalSecRemaiming === 0) {
         dispatch(changeActiveParticipant(idOfActiveParticipant()));
       }
-      setSec(currentSecTimer(startOfTrading) % 60);
+      setSec(currentSecTimer(startOfTender) % 60);
       clearInterval(timerId);
     }, 1000);
   };
