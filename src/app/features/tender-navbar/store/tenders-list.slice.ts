@@ -7,7 +7,6 @@ export const fetchTendersList = createAsyncThunk(
     const response = await client.get(
       "http://localhost:3001/tendersList"
     );
-    console.log('response.data',response.data)
     return response.data;
   }
 );

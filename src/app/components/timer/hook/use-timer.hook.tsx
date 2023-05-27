@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../../hooks";
-import { initialTimerDuration } from "../../../constants/initial-timer-duration.const";
+import { initialTimerDuration } from "../constants/initial-timer-duration.const";
 import { TUseTimer } from "./type/use-timer.type";
 import { currentSecTimer } from "../../../functions/current-sec-timer.func";
-import { changeActiveParticipant } from "../../../features/participants/slices/active-timer-participant.slice";
-import { selectTenderById } from "../../../features/tenders/slices/tenders-data.slice";
-import { dateConversion } from "../../../features/tenders/functions/date-conversion.func";
+import { changeActiveParticipant } from "../../../features/tender-table/store/active-timer-participant.slice";
+import { selectTenderById } from "../../../store/tenders-data.slice";
+import { dateConversion } from "../../../features/tender-table/functions/date-conversion.func";
 import { activeParticipantByIndex } from "../../../functions/index";
 
 export const useTimer = (): TUseTimer => {

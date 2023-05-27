@@ -2,8 +2,8 @@ import "./App.css";
 import { useAppDispatch, useAppSelector } from "./app/hooks";
 import { useEffect } from "react";
 import { ColorRing } from "react-loader-spinner";
-import { selectTenderIdsLoadingStatus } from "./app/features/tenders/tender-navbar/tenders-list.slice";
-import{fetchTendersList}from './app/features/tenders/tender-navbar/tenders-list.slice';
+import { selectTenderIdsLoadingStatus } from "./app/features/tender-navbar/store/tenders-list.slice";
+import{fetchTendersList}from './app/features/tender-navbar/store/tenders-list.slice';
 import { AppRoutesList } from "./app/routes/app-routes-list";
 const App = () => {
   const dispatch = useAppDispatch();

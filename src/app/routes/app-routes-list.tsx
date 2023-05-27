@@ -5,7 +5,7 @@ import { TendersPage } from "../pages/tenders-page/tenders-page";
 import { TraidingPage } from "../pages/tender-page/tender-page";
 import { NotFoundPage } from "../pages/not-found-page/not-faund-page";
 import { useAppSelector } from "../hooks";
-import {TTendersList} from '../features/tenders/tender-navbar/tenders-list.type'
+import {TTendersList} from '../features/tender-navbar/type/tenders-list.type'
 export const AppRoutesList = () => {
  const tendersList:TTendersList[]=useAppSelector((state)=>state.activeTender.tenderIdsList)
 

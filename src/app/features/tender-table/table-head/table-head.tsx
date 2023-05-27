@@ -4,9 +4,9 @@ import { Timer } from "../../../components/timer/timer";
 import { useAppSelector, useAppDispatch } from "../../../hooks";
 import { TTenderParticipant } from "../../tenders/types";
 import { TTenderTableProp } from "../types";
-import { dateConversion } from "../../tenders/functions/date-conversion.func";
+import { dateConversion } from "../functions/date-conversion.func";
 import { activeParticipantByIndex } from "../../../functions";
-import { changeActiveParticipant } from "../../participants/slices/active-timer-participant.slice";
+import { changeActiveParticipant } from "../store/active-timer-participant.slice";
 
 export const TableHead = ({ tender }: TTenderTableProp) => {
   const activeTimerParticipant = useAppSelector(

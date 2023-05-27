@@ -14,7 +14,7 @@ export const Timer = (
   ) => {
   const { secRemaiming, minRemaiming, hourRemaiming} =
   useTimer();
-    // useTimer(startOfTender);
+
   return (
     <div className="timer">
       <div id="hourRemaiming">{String(hourRemaiming).padStart(2, "0")}:</div>
