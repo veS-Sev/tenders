@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { client } from "../../../api/client";
-import {TTenderData, TFetchTendersData} from "../types"
+import { client } from "../api/client";
+import {TTenderData, TFetchTendersData} from "../features/tenders/types"
 
 export const fetchTendersData = createAsyncThunk(
   "tendersData/fetchTendersData",

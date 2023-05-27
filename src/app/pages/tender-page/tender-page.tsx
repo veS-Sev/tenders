@@ -4,11 +4,11 @@ import { useEffect } from "react";
 import {
   fetchTendersData,
   selectTenderById,
-} from "../../features/tenders/slices/tenders-data.slice";
+} from "../../store/tenders-data.slice";
 import { useAppSelector, useAppDispatch } from "../../hooks";
 
 
-import { selectTenderLoadingStatus } from "../../features/tenders/slices/tenders-data.slice";
+import { selectTenderLoadingStatus } from "../../store/tenders-data.slice";
 
 export const TraidingPage = () => {
   const dispatch = useAppDispatch();

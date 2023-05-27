@@ -1,10 +1,10 @@
 import './tender-navbar.scss';
-import { chooseСurrentVisibleTender } from "./tenders-list.slice";
-import { useAppDispatch } from "../../../hooks";
-import { useAppSelector } from "../../../hooks";
-import { selectTenderIdsLoadingStatus } from "./tenders-list.slice";
+import { chooseСurrentVisibleTender } from "./store/tenders-list.slice";
+import { useAppDispatch } from "../../hooks";
+import { useAppSelector } from "../../hooks";
+import { selectTenderIdsLoadingStatus } from "./store/tenders-list.slice";
 import { NavLink } from "react-router-dom";
-import {TTendersList} from './tenders-list.type';
+import {TTendersList} from './type/tenders-list.type';
 
 
 export const TenderNavbar = () => {

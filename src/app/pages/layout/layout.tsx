@@ -1,9 +1,9 @@
-import { TenderNavbar } from "../../features/tenders/tender-navbar/tender-navbar";
+import { TenderNavbar } from "../../features/tender-navbar/tender-navbar";
 import { Outlet } from "react-router";
 import "../tender-page/tender-page.scss";
 import { ColorRing } from "react-loader-spinner";
 import { useAppSelector } from "../../hooks/useAppSelector.hook";
-import { selectTenderIdsLoadingStatus } from "../../features/tenders/tender-navbar/tenders-list.slice";
+import { selectTenderIdsLoadingStatus } from "../../features/tender-navbar/store/tenders-list.slice";
 
 export const Layout = () => {
   const loadingStatus = useAppSelector((state) =>
