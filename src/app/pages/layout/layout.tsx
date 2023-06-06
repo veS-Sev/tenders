@@ -5,10 +5,14 @@ import { ColorRing } from "react-loader-spinner";
 import { useAppSelector } from "../../hooks/useAppSelector.hook";
 import { selectTenderIdsLoadingStatus } from "../../features/tender-navbar/store/tenders-list.slice";
 
+
+
+
 export const Layout = () => {
   const loadingStatus = useAppSelector((state) =>
     selectTenderIdsLoadingStatus(state)
   );
+
 
   return (
     <>

@@ -1,54 +1,75 @@
 import "./table-container.scss";
+import { ColorRing } from "react-loader-spinner";
+import { useEffect } from "react";
 import { TableHead } from "./table-head/table-head";
 import { TableBody } from "./table-body/table-body";
-import { useAppSelector } from "../../hooks";
-import { selectTenderById } from "../../store/tenders-data.slice";
+import { useAppSelector, useAppDispatch } from "../../hooks";
 import { dateConversion } from "./functions/date-conversion.func";
-import { TStartOfTenderData, TTenderParticipant } from "../tenders/types";
 import { timeHasPassed } from "../../functions/index";
-import {showStartDateText} from './functions/show-start-date-text.func';
+import { showStartDateText } from "../tender-table/functions/show-start-date-text.func";
+import { useParams } from "react-router-dom";
+import { fetchTenderById } from "./store/fetch-tender-by-id.slice";
+import { TStartOfTenderData } from "../tenders/types";
 
+export const TableContainer = () => {
+  const { id } = useParams();
 
-export const TableContainer = ({tender}:any) => {
-  const activeTender = useAppSelector(
-    (state) => state.activeTender.activeTender
-  );
+  const dispatch = useAppDispatch();
 
-  const tenderData = useAppSelector((state) =>
-    selectTenderById(state, activeTender)
-  );
-  const startOfTenderData: TStartOfTenderData = tender?.startOfTender;
+  const loadingStatus = useAppSelector((state) => state.tenderTable.status);
 
-  const startOfTender = dateConversion(startOfTenderData);
-  const tenderParticipants: TTenderParticipant[] =
-    tenderData.tenderParticipants;
-  
-  return (
-    <>
+  useEffect(() => {
+    id && dispatch(fetchTenderById(id));
+  }, [id,dispatch]);
+
+  const tenderData = useAppSelector((state) => state.tenderTable.tenderData);
+  let content;
+  let title;
+  if (loadingStatus === "succeeded" && tenderData) {
+    const startOfTenderData: TStartOfTenderData = tenderData.startOfTender;
+    const startOfTender = dateConversion(startOfTenderData);
+    const numberOfParticipants = tenderData && tenderData?.tenderParticipants;
+    title = (
       <h1 className="traiding-table-name">
         Ход торгов:
         <span>
           Тестовые торги на
-          {tenderData.tenderName}. 
+          {tenderData?.tenderName}.
         </span>
         {showStartDateText(startOfTender)}
       </h1>
-      {timeHasPassed(startOfTender) < 0?<div>Торги еще не начались</div>:(!tenderParticipants?<div>Нет участников</div>:
-      (<>
-             <div className="traiding-table-notice">
-               Уважаемые участники, во время ходы вы можете изменить параметры
-               торгов, указанных в таблице:
-             </div>
-             <table className="traiding-table">
-               <TableHead 
-               tender={tenderData} 
-               />
-               <TableBody tender={tenderData} />
-             </table>
-           </>
-        ))
-      }
+    );
+    if (timeHasPassed(startOfTender) < 0) {
+      content = <h3>Торги еще не начались</h3>;
+    } else if (!numberOfParticipants) {
+      content = <h3>Участников нет. Торги признаны несостоявшимися</h3>;
+    } else {
+      content = (
+        <table className="traiding-table">
+          <TableHead />
+          <TableBody />
+        </table>
+      );
+    }
+  } else if (loadingStatus === "failed") {
+    content = <h3>Данные не загружены</h3>;
+  } else {
+    content = <ColorRing
+    visible={true}
+    height="80"
+    width="80"
+    ariaLabel="blocks-loading"
+    wrapperStyle={{}}
+    wrapperClass="blocks-wrapper"
+    colors={["#e15b64", "#f47e60", "#f8b26a", "#abbd81", "#849b87"]}
+  />;
+  }
+
+  return (
+    <>
+      {title}
+
+      {content}
     </>
   );
 };
-
