@@ -3,10 +3,12 @@ import {useAppSelector} from '../../../hooks'
 import {
   TTenderParameters,
 } from "../../../features/tenders/types/index";
-import {TTenderTableProp} from "../types";
+import { } from "../types";
 
-export const TableBody = (
-  {tender}:TTenderTableProp) => {
+export const TableBody = () => {
+
+    const tender:any = useAppSelector((state) => state.tenderTable.tenderData);
+  
   const activeTimerParticipant = useAppSelector(
     (state) => state.activeTimerParticipant.id
   );

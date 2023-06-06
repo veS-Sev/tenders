@@ -1,5 +1,5 @@
-import { TStartOfTenderData} from "../../tenders/types/start-of-tender.type";
-export   const dateConversion = (startOfTender: TStartOfTenderData): any => {
+import { TStartOfTenderData } from "../../tenders/types/start-of-tender.type";
+export const dateConversion = (startOfTender: TStartOfTenderData): any => {
   let { year, month, day, hour, min } = startOfTender;
   const dateStartError = new Error("Дата начала торгов неверна");
   const numYear = Number(year);
@@ -8,14 +8,15 @@ export   const dateConversion = (startOfTender: TStartOfTenderData): any => {
   const numHour = Number(hour);
   const numMin = Number(min);
   try {
-    for (const [key, value] of Object.entries(startOfTender)) {
-       if (
+    const values = Object.values(startOfTender);
+    values.forEach((value) => {
+      if (
         Boolean(value) === false ||
         Boolean(Number.isNaN(Math.trunc(Number(value)))) === true
       ) {
         throw dateStartError;
       }
-    }
+    });
     if (
       numYear > 2023 + 10 ||
       numYear < 2023 ||

@@ -3,35 +3,31 @@ import { useCallback, useEffect } from "react";
 import { Timer } from "../../../components/timer/timer";
 import { useAppSelector, useAppDispatch } from "../../../hooks";
 import { TTenderParticipant } from "../../tenders/types";
-import { TTenderTableProp } from "../types";
 import { dateConversion } from "../functions/date-conversion.func";
 import { activeParticipantByIndex } from "../../../functions";
 import { changeActiveParticipant } from "../store/active-timer-participant.slice";
 
-export const TableHead = ({ tender }: TTenderTableProp) => {
+export const TableHead = () => {
   const activeTimerParticipant = useAppSelector(
     (state) => state.activeTimerParticipant.id
   );
-  console.log("activeTimerParticipant", activeTimerParticipant);
+
   const dispatch = useAppDispatch();
-
+  const tender: any = useAppSelector((state) => state.tenderTable.tenderData);
   const startOfTender = dateConversion(tender.startOfTender);
-
   const tenderParticipants = tender.tenderParticipants;
- 
- 
 
   const idOfActiveParticipant = useCallback(() => {
     const idexOfParticipant = activeParticipantByIndex(
       tenderParticipants,
       startOfTender
     );
-    return tenderParticipants[idexOfParticipant].id ;
-  }, [tenderParticipants,
-    startOfTender]);
+
+    return tenderParticipants[idexOfParticipant].id;
+  }, [tenderParticipants, startOfTender]);
   useEffect(() => {
     dispatch(changeActiveParticipant(idOfActiveParticipant()));
-  }, [tenderParticipants]);
+  }, [tenderParticipants,dispatch,idOfActiveParticipant]);
 
   return (
     <thead className="table-head">

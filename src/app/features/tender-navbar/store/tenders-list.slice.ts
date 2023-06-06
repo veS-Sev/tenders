@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { client } from "../../../api/client";
+import {TTendersList} from '../type/tenders-list.type'
 
 export const fetchTendersList = createAsyncThunk(
   "activeTender/fetchTendersList",
@@ -11,11 +12,12 @@ export const fetchTendersList = createAsyncThunk(
   }
 );
 
+
 export type TActiveTenderReducer = {
   activeTender: string;
   status: "idle" | "loading" | "succeeded" | "failed";
   error: null|string|undefined;
-  tenderIdsList:any
+  tenderIdsList:[]| TTendersList[]
 };
 const initialState: TActiveTenderReducer = {
   activeTender: "T-456159",

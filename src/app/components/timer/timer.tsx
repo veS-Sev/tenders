@@ -2,7 +2,7 @@ import "./timer.scss";
 import {memo} from 'react';
 import { useTimer } from "./hook/use-timer.hook";
 import { BsHourglassSplit } from "react-icons/bs";
-import {TStartOfTender, TTenderParticipant} from '../../features/tenders/types'
+import {TTenderParticipant} from '../../features/tenders/types'
 
 const BsHourglass=memo(BsHourglassSplit);
 
