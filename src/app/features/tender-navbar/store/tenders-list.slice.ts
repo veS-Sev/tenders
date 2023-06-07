@@ -6,7 +6,7 @@ export const fetchTendersList = createAsyncThunk(
   "activeTender/fetchTendersList",
   async () => {
     const response = await client.get(
-      "http://localhost:3001/tendersList"
+      "https://bv09pq-8080.csb.app/tendersList"
     );
     return response.data;
   }

@@ -34,9 +34,9 @@ export const TableHead = () => {
       <tr>
         <th className="tablehead-th">Ход</th>
         {tenderParticipants.map((participant: TTenderParticipant) => (
-          <th key={participant.id} data-participant={participant.id}>
+          <th key={participant.id}>
             {participant.id === activeTimerParticipant ? (
-              <Timer key={participant.id} data-participant={participant} />
+              <Timer key={participant.id} />
             ) : null}
           </th>
         ))}
