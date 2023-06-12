@@ -5,7 +5,7 @@ import {TTenderTableReducer} from '../types';
 export const fetchTenderById=createAsyncThunk(
     "tenderTable/fetchTender",
     async(id:string)=>{
-        const response=await client.get(`http://localhost:3001/tenders/${id}`);
+        const response=await client.get(`https://bv09pq-8080.csb.app/tenders/${id}`);
         return response.data
     }
 )

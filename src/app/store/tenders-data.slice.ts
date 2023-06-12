@@ -5,7 +5,7 @@ import {TTenderData, TFetchTendersData} from "../features/tenders/types"
 export const fetchTendersData = createAsyncThunk(
   "tendersData/fetchTendersData",
   async () => {
-    const response = await client.get("http://localhost:3001/tenders");
+    const response = await client.get("https://bv09pq-8080.csb.app/tenders");
     return response.data;
   }
 );

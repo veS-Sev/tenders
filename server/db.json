@@ -22,25 +22,25 @@
             "tenderParticipants": [
                 {
                     "id": "P-0001",
-                    "name": "Участник 1",
+                    "name": "ООО СПЕЦМОНТАЖ",
                     "improveStandartActivites": "нет",
                     "price": 75000
                 },
                 {
                     "id": "P-0002",
-                    "name": "Участник 2",
+                    "name": "ООО ЛЕГИОН АГРО",
                     "improveStandartActivites": "да",
                     "price": 105000
                 },
                 {
                     "id": "P-0003",
-                    "name": "Участник 3",
+                    "name": "АО БИЗНЕС-СТРОЙ",
                     "improveStandartActivites": "да",
                     "price": 100000
                 },
                 {
                     "id": "P-0004",
-                    "name": "Участник 4",
+                    "name": "ООО АФФИНИТИ ПЛЮС",
                     "improveStandartActivites": "нет",
                     "price": 83500
                 }
@@ -68,13 +68,13 @@
             "tenderParticipants": [
                 {
                     "id": "P-0001",
-                    "name": "Участник 1",
+                    "name": "ООО СПЕЦМОНТАЖ",
                     "improveStandartActivites": "нет",
                     "price": 125000
                 },
                 {
                     "id": "P-0004",
-                    "name": "Участник 4",
+                    "name": "ООО АФФИНИТИ ПЛЮС",
                     "improveStandartActivites": "нет",
                     "price": 166500
                 }
@@ -102,19 +102,19 @@
             "tenderParticipants": [
                 {
                     "id": "P-0001",
-                    "name": "Участник 1",
+                    "name": "ООО СПЕЦМОНТАЖ",
                     "improveStandartActivites": "нет",
                     "price": 175000
                 },
                 {
                     "id": "P-0003",
-                    "name": "Участник 3",
+                    "name": "АО БИЗНЕС-СТРОЙ",
                     "improveStandartActivites": "да",
                     "price": 107000
                 },
                 {
                     "id": "P-0005",
-                    "name": "Участник 5",
+                    "name": "АО КРОМСКОЙ ЗГИ",
                     "improveStandartActivites": "да",
                     "price": 0
                 }
@@ -142,14 +142,14 @@
             "tenderParticipants": [
                 {
                     "id": "P-0002",
-                    "name": "Участник 2",
+                    "name": "ООО ЛЕГИОН АГРО",
                     "improveStandartActivites": "да",
                     "warranty": "есть",
                     "price": 157000
                 },
                 {
                     "id": "P-0004",
-                    "name": "Участник 4",
+                    "name": "ООО АФФИНИТИ ПЛЮС",
                     "improveStandartActivites": "нет",
                     "price": 823500
                 }
@@ -202,29 +202,36 @@
     "users": [
         {
             "userId": "P-0001",
-            "name": "Ракета",
-            "taxID": "987741258963",
+            "name": "ООО СПЕЦМОНТАЖ",
+            "taxID": "237741258963",
             "tel": "",
             "adress": ""
         },
         {
             "userId": "P-0002",
-            "name": "Планета",
+            "name": "ООО ЛЕГИОН АГРО",
             "taxID": "нет",
-            "tel": "9876543213537",
+            "tel": "2376543213537",
             "adress": ""
         },
         {
             "userId": "P-0003",
-            "name": "Комета",
+            "name": "АО БИЗНЕС-СТРОЙ",
             "taxID": "нет",
-            "tel": "123456789159",
+            "tel": "633456789159",
             "adress": ""
         },
         {
             "userId": "P-0004",
-            "name": "Комета",
-            "taxID": "245789456123",
+            "name": "ООО АФФИНИТИ ПЛЮС",
+            "taxID": "185789456123",
+            "tel": "",
+            "adress": ""
+        },
+        {
+            "userId": "P-0005",
+            "name": "АО КРОМСКОЙ ЗГИ",
+            "taxID": "575789456123",
             "tel": "",
             "adress": ""
         }

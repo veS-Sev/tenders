@@ -1,47 +1,49 @@
 import "./table-body.scss";
-import {useAppSelector} from '../../../hooks'
-import {
-  TTenderParameters,
-} from "../../../features/tenders/types/index";
-import { } from "../types";
-
+import { useAppSelector } from "../../../hooks";
+import { TTenderParameters } from "../../../features/tenders/types/index";
+import { TTenderParticipant } from "../../tenders/types";
+import { TableTd } from "../table-td/table-td";
 export const TableBody = () => {
-
-    const tender:any = useAppSelector((state) => state.tenderTable.tenderData);
-  
-  const activeTimerParticipant = useAppSelector(
-    (state) => state.activeTimerParticipant.id
+  const tender: any = useAppSelector((state) => state.tenderTable.tenderData);
+  const tenderParticipants = tender.tenderParticipants;
+  const tenderParametrsName = Object.getOwnPropertyNames(
+    tender.tenderParamerts
   );
 
-  const tenderParticipants = tender.tenderParticipants;
+  // Можно вывести в отдельный компонент Forms
+  let forms = tenderParticipants.map((participant: any) => (
+    <form
+      onSubmit={(e) => e.preventDefault()}
+      key={participant.id}
+      id={participant.id}
+    ></form>
+  ));
 
   return (
     <>
-    <tbody>
-      {Object.getOwnPropertyNames(tender.tenderParamerts).map((parametr: string) => (
-        <tr key={parametr}>
-          <th key={parametr}>
-            {tender.tenderParamerts[parametr as keyof TTenderParameters]}
-          </th>
-          {tenderParticipants.map(
-              //должен быть установлен тип
-              (participant:any) => (
-                <td
-                  className={
-                    activeTimerParticipant ===
-                    (participant.id)
-                      ? "active participant-column"
-                      : "participant-column"
-                  }
+      {forms}
+      <tbody>
+        {tenderParametrsName.map((parametr: string) => (
+          <tr key={parametr}>
+            <th key={parametr}>
+              {tender.tenderParamerts[parametr as keyof TTenderParameters]}
+            </th>
+            {tenderParticipants.map(
+              (participant: TTenderParticipant, index: number) => (
+
+                <TableTd
                   key={participant.id}
-                >
-                  {participant[parametr as keyof TTenderParameters]}
-                </td>
+                  participant={participant}
+                  currentParametr={parametr}
+                  index={index}
+                  name={"name"}
+                  actions={"actions"}
+                />
               )
             )}
-        </tr>
-      ))}
-    </tbody></>
+          </tr>
+        ))}
+      </tbody>
+    </>
   );
 };
-
