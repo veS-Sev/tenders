@@ -11,17 +11,11 @@ export const TableBody = () => {
   );
 
   // Можно вывести в отдельный компонент Forms
-  let forms = tenderParticipants.map((participant: any) => (
-    <form
-      onSubmit={(e) => e.preventDefault()}
-      key={participant.id}
-      id={participant.id}
-    ></form>
-  ));
 
-  return (
+
+  return ( 
     <>
-      {forms}
+     
       <tbody>
         {tenderParametrsName.map((parametr: string) => (
           <tr key={parametr}>
