@@ -6,13 +6,20 @@ import { currentSecTimer } from "../../../functions/current-sec-timer.func";
 import { changeActiveParticipant } from "../../../features/tender-table/store/active-timer-participant.slice";
 import { dateConversion } from "../../../features/tender-table/functions/date-conversion.func";
 import { activeParticipantByIndex } from "../../../functions/index";
-
+import { useGetTenderQuery } from "../../../features/tender-table/api/tender.api";
 
 export const useTimer = (): TUseTimer => {
-  const tenderData = useAppSelector((state) =>
-    state.tenderTable.tenderData
+  const tenderId: any = useAppSelector(
+    (state) => state.activeTender.activeTender
   );
-  const startOfTender = tenderData?.startOfTender&&dateConversion(tenderData.startOfTender);
+  const tender: any = useAppSelector((state) => state.tenderApi.queries.get);
+  const { data, isSuccess } = useGetTenderQuery(tenderId);
+
+
+  // const tenderData = useAppSelector((state) =>
+  //   state.tenderTable.tenderData
+  // );
+  const startOfTender = data.startOfTender&&dateConversion(data.startOfTender);
 
   const dispatch = useAppDispatch();
   const [secRemaiming, setSec] = useState(initialTimerDuration.sec);
@@ -21,7 +28,7 @@ export const useTimer = (): TUseTimer => {
 
   const totalSecRemaiming = currentSecTimer(startOfTender);
 
-  const tenderParticipants = tenderData?.tenderParticipants;
+  const tenderParticipants = data.tenderParticipants;
 
   const idOfActiveParticipant = () => {
     if(tenderParticipants){    const idexOfParticipant = activeParticipantByIndex(

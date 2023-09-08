@@ -1,9 +1,10 @@
 export type TTableTd = {
     participant?: any;
-    currentParametr?: string;
+    currentParameter?: string;
     index: number;
     name?: string;
     actions?: string;
     type?: any;
     key?: any;
+   
   };

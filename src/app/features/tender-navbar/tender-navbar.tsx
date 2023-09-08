@@ -1,5 +1,5 @@
 import "./tender-navbar.scss";
-import { chooseСurrentVisibleTender } from "./store/tenders-list.slice";
+import { chooseCurrentVisibleTender } from "./store/tenders-list.slice";
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import { selectTenderIdsLoadingStatus } from "./store/tenders-list.slice";
 import { NavLink, useParams } from "react-router-dom";
@@ -12,7 +12,7 @@ export const TenderNavbar = () => {
   );
   const dispatch = useAppDispatch();
   const tenderNavHandler = (runningTenderId: string) => {
-    dispatch(chooseСurrentVisibleTender(runningTenderId));
+    dispatch(chooseCurrentVisibleTender(runningTenderId));
   };
   const loadingStatus = useAppSelector((store) =>
     selectTenderIdsLoadingStatus(store)
@@ -22,8 +22,8 @@ export const TenderNavbar = () => {
 
   useEffect(() => {
     if (tendersList.find((item) => item.id === id)) {
-      dispatch(chooseСurrentVisibleTender(id));
-    }else{dispatch(chooseСurrentVisibleTender(null))}
+      dispatch(chooseCurrentVisibleTender(id));
+    }else{dispatch(chooseCurrentVisibleTender(null))}
   }, [id,tendersList,dispatch]);
   return (
     <nav className="tender-navbar">

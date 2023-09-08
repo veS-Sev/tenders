@@ -30,7 +30,8 @@ export const activeTenderReducer = createSlice({
   name: "activeTender",
   initialState,
   reducers: {
-    chooseСurrentVisibleTender(state, action) {
+    chooseCurrentVisibleTender(state, action) {
+      console.log('state.activeTender',state.activeTender)
       state.activeTender = action.payload;
     },
   },
@@ -49,6 +50,6 @@ export const activeTenderReducer = createSlice({
       });
   },
 });
-export const { chooseСurrentVisibleTender } = activeTenderReducer.actions;
+export const { chooseCurrentVisibleTender } = activeTenderReducer.actions;
 export default activeTenderReducer.reducer;
 export const selectTenderIdsLoadingStatus = (state: any):string => state.activeTender.status;

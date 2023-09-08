@@ -1,40 +1,37 @@
 import "./table-container.scss";
 import { ColorRing } from "react-loader-spinner";
-import { useEffect } from "react";
+
 import { TableHead } from "./table-head/table-head";
 import { TableBody } from "./table-body/table-body";
-import { useAppSelector, useAppDispatch } from "../../hooks";
+import { useAppDispatch } from "../../hooks";
 import { dateConversion } from "./functions/date-conversion.func";
 import { timeHasPassed } from "../../functions/index";
 import { showStartDateText } from "../tender-table/functions/show-start-date-text.func";
 import { useParams } from "react-router-dom";
-import { fetchTenderById } from "./store/fetch-tender-by-id.slice";
+import { useGetTenderQuery } from "./api/tender.api";
 import { TStartOfTenderData } from "../tenders/types";
 import { Forms } from "./forms/forms";
+
 export const TableContainer = () => {
   const { id } = useParams();
 
+  const { data, isSuccess, isError, refetch } = useGetTenderQuery(id);
   const dispatch = useAppDispatch();
 
-  const loadingStatus = useAppSelector((state) => state.tenderTable.status);
-
-  useEffect(() => {
-    id && dispatch(fetchTenderById(id));
-  }, [id, dispatch]);
-
-  const tenderData = useAppSelector((state) => state.tenderTable.tenderData);
   let content;
   let title;
-  if (loadingStatus === "succeeded" && tenderData) {
-    const startOfTenderData: TStartOfTenderData = tenderData.startOfTender;
+
+  if (isSuccess && data) {
+    const startOfTenderData: TStartOfTenderData = data?.startOfTender;
     const startOfTender = dateConversion(startOfTenderData);
-    const numberOfParticipants = tenderData && tenderData?.tenderParticipants;
+
+    const numberOfParticipants = data && data?.tenderParticipants;
     title = (
       <h1 className="traiding-table-name">
         Ход торгов:
         <span>
           Тестовые торги на
-          {tenderData?.tenderName}.
+          {data?.tenderName}.
         </span>
         {showStartDateText(startOfTender)}
       </h1>
@@ -44,11 +41,10 @@ export const TableContainer = () => {
     } else if (!numberOfParticipants) {
       content = <h3>Участников нет. Торги признаны несостоявшимися</h3>;
     } else {
-      const tenderParticipants=tenderData.tenderParticipants
-      console.log('tenderParticipants',tenderParticipants)
+      const tenderParticipants = data.tenderParticipants;
       content = (
         <>
-          <Forms tenderParticipants={tenderParticipants}/>
+          <Forms tenderParticipants={tenderParticipants} tenderId={data.id} />
           <table className="traiding-table">
             <TableHead />
             <TableBody />
@@ -56,7 +52,7 @@ export const TableContainer = () => {
         </>
       );
     }
-  } else if (loadingStatus === "failed") {
+  } else if (isError) {
     content = <h3>Данные не загружены</h3>;
   } else {
     content = (
@@ -72,9 +68,17 @@ export const TableContainer = () => {
     );
   }
 
+  const clearCash = () => {
+    console.log("очищаем кеш");
+    refetch();
+  };
+
   return (
     <>
       {title}
+      <button type="button" onClick={clearCash}>
+        {"Обновить данные"}
+      </button>
       {content}
     </>
   );

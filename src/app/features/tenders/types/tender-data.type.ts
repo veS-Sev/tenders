@@ -4,7 +4,7 @@ export type TTenderData = {
     id: string;
     tenderName: string;
     startOfTender: TStartOfTenderData;
-    tenderParamerts: {
+    tenderParameters: {
       name: string;
       improveStandartActivites?: string;
       price?: string;
