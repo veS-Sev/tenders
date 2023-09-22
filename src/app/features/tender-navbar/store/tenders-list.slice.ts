@@ -1,28 +1,14 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { client } from "../../../api/client";
+import { createSlice } from "@reduxjs/toolkit";
 import {TTendersList} from '../type/tenders-list.type'
 
-export const fetchTendersList = createAsyncThunk(
-  "activeTender/fetchTendersList",
-  async () => {
-    const response = await client.get(
-      "https://bv09pq-8080.csb.app/tendersList"
-    );
-    return response.data;
-  }
-);
-
-
 export type TActiveTenderReducer = {
-  activeTender: string;
-  status: "idle" | "loading" | "succeeded" | "failed";
+  activeTender: string|null;
   error: null|string|undefined;
   tenderIdsList:[]| TTendersList[]
 };
 const initialState: TActiveTenderReducer = {
-  activeTender: "T-456159",
+  activeTender: 'T-332259',
   tenderIdsList:[],
-  status: "idle",
   error: null,
 };
 
@@ -34,22 +20,10 @@ export const activeTenderReducer = createSlice({
       console.log('state.activeTender',state.activeTender)
       state.activeTender = action.payload;
     },
-  },
-  extraReducers(builder) {
-    builder
-      .addCase(fetchTendersList.pending, (state) => {
-        state.status = "loading";
-      })
-      .addCase(fetchTendersList.fulfilled, (state, action) => {
-        state.status = "succeeded";
-        state.tenderIdsList = action.payload;
-      })
-      .addCase(fetchTendersList.rejected, (state, action) => {
-        state.status = "failed";
-        state.error = action.error.message
-      });
-  },
+    getTenderIdsList(state,action){
+      state.tenderIdsList=action.payload;
+    }
+  }
 });
-export const { chooseCurrentVisibleTender } = activeTenderReducer.actions;
+export const { chooseCurrentVisibleTender, getTenderIdsList} = activeTenderReducer.actions;
 export default activeTenderReducer.reducer;
-export const selectTenderIdsLoadingStatus = (state: any):string => state.activeTender.status;

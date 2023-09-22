@@ -1,23 +1,21 @@
 import "./App.css";
-import { useAppDispatch, useAppSelector } from "./app/hooks";
+import { useAppDispatch} from "./app/hooks";
 import { useEffect } from "react";
 import { ColorRing } from "react-loader-spinner";
-import { selectTenderIdsLoadingStatus } from "./app/features/tender-navbar/store/tenders-list.slice";
-import{fetchTendersList}from './app/features/tender-navbar/store/tenders-list.slice';
+import{ getTenderIdsList}from './app/features/tender-navbar/store/tenders-list.slice';
 import { AppRoutesList } from "./app/routes/app-routes-list";
+import{useGetTendersListQuery} from "./app/features/tender-navbar/api/tenders-list.api"
 const App = () => {
   const dispatch = useAppDispatch();
-  const loadingStatus = useAppSelector((state) =>
-  selectTenderIdsLoadingStatus(state)
-  );
 
+  const {data,isError,isSuccess,isLoading,isUninitialized}=useGetTendersListQuery({});
   useEffect(() => {
-    if (loadingStatus === "idle") {
-      dispatch(fetchTendersList());
+    if (data) {
+      dispatch(getTenderIdsList(data));
     }
-  }, [loadingStatus, dispatch]);
+  }, [ dispatch,data,isError,isSuccess,isLoading,isUninitialized]);
 
-  return loadingStatus === "idle" ?<ColorRing
+  return isLoading ?<ColorRing
           visible={true}
           height="80"
           width="80"

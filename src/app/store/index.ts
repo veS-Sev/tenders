@@ -1,15 +1,17 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { tenderApi } from "../features/tender-table/api/tender.api";
+import { tendersListApi } from "../features/tender-navbar/api/tenders-list.api";
 import activeTimerParticipantSlice from "../features/tender-table/store/active-timer-participant.slice";
 import activeTenderReducer from "../features/tender-navbar/store/tenders-list.slice";
 export const store = configureStore({
   reducer: {
     activeTimerParticipant: activeTimerParticipantSlice,
     activeTender: activeTenderReducer,
-    [tenderApi.reducerPath]: tenderApi.reducer
+    [tenderApi.reducerPath]: tenderApi.reducer,
+    [tendersListApi.reducerPath]:tendersListApi.reducer
   },
   middleware: (getDefaultMiddleware) =>
-  getDefaultMiddleware().concat(tenderApi.middleware)
+  getDefaultMiddleware().concat(tenderApi.middleware).concat(tendersListApi.middleware)
 });
 // setupListeners(store.dispatch)
 

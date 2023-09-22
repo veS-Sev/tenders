@@ -1,34 +1,31 @@
 import "./tender-navbar.scss";
 import { chooseCurrentVisibleTender } from "./store/tenders-list.slice";
-import { useAppDispatch, useAppSelector } from "../../hooks";
-import { selectTenderIdsLoadingStatus } from "./store/tenders-list.slice";
+import { useAppDispatch} from "../../hooks";
+import {useGetTendersListQuery} from "./api/tenders-list.api";
 import { NavLink, useParams } from "react-router-dom";
 import { TTendersList } from "./type/tenders-list.type";
 import { useEffect } from "react";
 
+
 export const TenderNavbar = () => {
-  const tendersList:TTendersList[]= useAppSelector(
-    (state) => state.activeTender.tenderIdsList
-  );
+  const {data,isSuccess,isLoading,isFetching}=useGetTendersListQuery({});
   const dispatch = useAppDispatch();
   const tenderNavHandler = (runningTenderId: string) => {
     dispatch(chooseCurrentVisibleTender(runningTenderId));
   };
-  const loadingStatus = useAppSelector((store) =>
-    selectTenderIdsLoadingStatus(store)
-  );
 
   const { id } = useParams();
 
   useEffect(() => {
-    if (tendersList.find((item) => item.id === id)) {
+    if(data&&isSuccess){
+    if (data.find((item:TTendersList) => item.id === id)) {
       dispatch(chooseCurrentVisibleTender(id));
-    }else{dispatch(chooseCurrentVisibleTender(null))}
-  }, [id,tendersList,dispatch]);
+    }else{dispatch(chooseCurrentVisibleTender(null))}}
+  }, [id,data,dispatch,isSuccess,isLoading,isFetching]);
   return (
     <nav className="tender-navbar">
-      {loadingStatus === "succeeded"
-        ? tendersList.map((tender) => (
+      {isSuccess
+        ? data.map((tender:TTendersList) => (
             <NavLink
               to={`tenders/${tender.id}`}
               className="tender-navbar-link"
