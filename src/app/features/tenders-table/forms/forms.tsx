@@ -10,13 +10,14 @@ export const Forms = memo(function Forms({
   tenderId,
   tenderParticipants,
 }: FormsProps) {
-  const [makeOffer, { data, isError }] = useMakeOfferMutation();
+  const [makeOffer, { data}] = useMakeOfferMutation();
 
   const handleForm = async (
     e: React.FormEvent<HTMLFormElement>,
     participantId: string
   ) => {
     e.preventDefault();
+
     const form = e.currentTarget;
 
     const formData = new FormData(form);
@@ -24,13 +25,11 @@ export const Forms = memo(function Forms({
     const formJson = Object.fromEntries(formData.entries());
 
     //тут нужно написать, что мы отправляем на сервак
-    console.log("tenderId", tenderId);
-    //отправляем данные из таблицы, к ним автоматически добавляют сгенерированный айдишник
-    // await makeOffer(formJson).unwrap()
-    let body = { name: `SUCCESS ${new Date()}` };
-    console.log("{tenderId,body}", { tenderId, body });
-    // в этом случае не отправляется на сервер tenderId
-    await makeOffer({ tenderId, body }).unwrap();
+    console.log("tenderId ", tenderId);
+    console.log('formJson',formJson)
+    //отправляем данные из таблицы, к ним автоматически добавляют сгенерированный айдишник  
+
+    await makeOffer({ tenderId,participantId, ...formJson}).unwrap();
   };
 
   return (

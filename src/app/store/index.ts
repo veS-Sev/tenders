@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { tenderApi } from "../features/tender-table/api/tender.api";
+import { tenderApi } from "../features/tenders-table/api/tender.api";
 import { tendersListApi } from "../features/tender-navbar/api/tenders-list.api";
-import activeTimerParticipantSlice from "../features/tender-table/store/active-timer-participant.slice";
+import activeTimerParticipantSlice from "../features/tenders-table/store/active-timer-participant.slice";
 import activeTenderReducer from "../features/tender-navbar/store/tenders-list.slice";
 export const store = configureStore({
   reducer: {

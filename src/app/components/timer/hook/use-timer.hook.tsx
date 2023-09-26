@@ -3,22 +3,18 @@ import { useAppDispatch, useAppSelector } from "../../../hooks";
 import { initialTimerDuration } from "../constants/initial-timer-duration.const";
 import { TUseTimer } from "./type/use-timer.type";
 import { currentSecTimer } from "../../../functions/current-sec-timer.func";
-import { changeActiveParticipant } from "../../../features/tender-table/store/active-timer-participant.slice";
-import { dateConversion } from "../../../features/tender-table/functions/date-conversion.func";
+import { changeActiveParticipant } from "../../../features/tenders-table/store/active-timer-participant.slice";
+import { dateConversion } from "../../../features/tenders-table/functions/date-conversion.func";
 import { activeParticipantByIndex } from "../../../functions/index";
-import { useGetTenderQuery } from "../../../features/tender-table/api/tender.api";
+import { useGetTenderQuery } from "../../../features/tenders-table/api/tender.api";
 
 export const useTimer = (): TUseTimer => {
   const tenderId: any = useAppSelector(
     (state) => state.activeTender.activeTender
   );
-  const tender: any = useAppSelector((state) => state.tenderApi.queries.get);
+  
   const { data, isSuccess } = useGetTenderQuery(tenderId);
 
-
-  // const tenderData = useAppSelector((state) =>
-  //   state.tenderTable.tenderData
-  // );
   const startOfTender = data.startOfTender&&dateConversion(data.startOfTender);
 
   const dispatch = useAppDispatch();

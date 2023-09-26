@@ -7,7 +7,7 @@ import { TTenderParticipant } from "../../tenders/types";
 import { dateConversion } from "../functions/date-conversion.func";
 import { activeParticipantByIndex } from "../../../functions";
 import { changeActiveParticipant } from "../store/active-timer-participant.slice";
-// import {selectTenderById} from "../store/tender.api"
+
 export const TableHead = () => {
   const activeTimerParticipant = useAppSelector(
     (state) => state.activeTimerParticipant.id

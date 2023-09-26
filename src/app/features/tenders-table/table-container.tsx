@@ -6,7 +6,7 @@ import { TableBody } from "./table-body/table-body";
 import { useAppDispatch } from "../../hooks";
 import { dateConversion } from "./functions/date-conversion.func";
 import { timeHasPassed } from "../../functions/index";
-import { showStartDateText } from "../tender-table/functions/show-start-date-text.func";
+import { showStartDateText } from "../tenders-table/functions/show-start-date-text.func";
 import { useParams } from "react-router-dom";
 import { useGetTenderQuery } from "./api/tender.api";
 import { TStartOfTenderData } from "../tenders/types";

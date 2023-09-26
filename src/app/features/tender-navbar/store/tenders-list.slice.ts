@@ -3,13 +3,11 @@ import {TTendersList} from '../type/tenders-list.type'
 
 export type TActiveTenderReducer = {
   activeTender: string|null;
-  error: null|string|undefined;
   tenderIdsList:[]| TTendersList[]
 };
 const initialState: TActiveTenderReducer = {
   activeTender: 'T-332259',
   tenderIdsList:[],
-  error: null,
 };
 
 export const activeTenderReducer = createSlice({

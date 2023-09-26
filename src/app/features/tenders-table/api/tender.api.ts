@@ -12,8 +12,8 @@ endpoints:(build)=>({
        query:(id)=>`/tenders/${id}` 
     }),
     makeOffer:build.mutation({
-      query:({ tenderId, ...body })=>({
-         url:`/tenders`,
+      query:({...body})=>({
+         url:`/offers`,
          method:'POST',
          body:body,
          prepareHeaders: (headers:any) => {
