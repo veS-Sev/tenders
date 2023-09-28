@@ -1,16 +1,21 @@
 import {createApi,fetchBaseQuery} from '@reduxjs/toolkit/query/react';
-
+import { BASE_ENDPOINT } from '../../../constants/endpoint.const';
 
 export const tenderApi=createApi({
    reducerPath:'tenderApi',
    baseQuery:fetchBaseQuery({
-      baseUrl:'https://bv09pq-8080.csb.app'
-
+      baseUrl:BASE_ENDPOINT
    }),
 endpoints:(build)=>({
     getTender:build.query({
        query:(id)=>`/tenders/${id}` 
     }),
+    getTenderAllOffers:build.query({
+      query:(tenderId)=>`/tenders/${tenderId}/offers` 
+   }),
+   getTenderParticipantOffers:build.query({
+      query:({tenderId,participantId})=>`/tenders/${tenderId}/offers?participantId=${participantId}` 
+   }),
     makeOffer:build.mutation({
       query:({...body})=>({
          url:`/offers`,
@@ -26,4 +31,4 @@ endpoints:(build)=>({
 
 
 })
-export const {useGetTenderQuery,useMakeOfferMutation}=tenderApi
+export const {useGetTenderQuery,useMakeOfferMutation, useGetTenderAllOffersQuery,useGetTenderParticipantOffersQuery}=tenderApi
