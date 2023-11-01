@@ -7,6 +7,7 @@ const activeTimerParticipantSlice = createSlice({
   },
   reducers: {
     changeActiveParticipant(state, action){
+      console.log('action.payload',action.payload)
       state.id=action.payload
     },
   },

@@ -2,11 +2,11 @@ import { createSlice } from "@reduxjs/toolkit";
 import {TTendersList} from '../type/tenders-list.type'
 
 export type TActiveTenderReducer = {
-  activeTender: string|null;
+  activeTender: string|undefined;
   tenderIdsList:[]| TTendersList[]
 };
 const initialState: TActiveTenderReducer = {
-  activeTender: 'T-332259',
+  activeTender: undefined,
   tenderIdsList:[],
 };
 

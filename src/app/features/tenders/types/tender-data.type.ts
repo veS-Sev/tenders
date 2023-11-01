@@ -1,4 +1,4 @@
-import { TTenderParticipant, TStartOfTender,TStartOfTenderData } from "./index";
+import { TStartOfTenderData } from "./index";
 
 export type TTenderData = {
     id: string;
@@ -13,7 +13,6 @@ export type TTenderData = {
       actions?: string;
       conditionsOfPayment?: string;
     };
-    tenderParticipants: TTenderParticipant[];
   };
 
 

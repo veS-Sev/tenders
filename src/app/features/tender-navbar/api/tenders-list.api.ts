@@ -1,8 +1,8 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
-
+import {BASE_ENDPOINT} from '../../../constants/endpoint.const'
 export const tendersListApi = createApi({
   reducerPath: "tenderListApi",
-  baseQuery: fetchBaseQuery({ baseUrl: "https://bv09pq-8080.csb.app/" }),
+  baseQuery: fetchBaseQuery({ baseUrl:BASE_ENDPOINT }),
   endpoints: (build) => ({
     getTendersList: build.query({
       query: () => "tendersList",

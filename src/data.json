@@ -1,0 +1,563 @@
+{
+    "tenders": [
+        {
+            "id": "T-789456",
+            "tenderName": "Аппарат ЛОТОС-12SW",
+            "startOfTender": {
+                "year": "2023",
+                "month": "06",
+                "day": "29",
+                "hour": "00",
+                "min": "08"
+            },
+            "tenderParameters": {
+                "name": "Параметры и требования",
+                "improveStandartActivites": "Наличие комплекса мероприятий, повышающих стандарты качества изготовления",
+                "productionTime": "Срок изготовления лота",
+                "warranty": "Гарантийные обязательства",
+                "conditionsOfPayment": "Условия оплаты",
+                "price": "Стоимость изготовления лота, руб",
+                "actions": "Действия"
+            }
+        },
+        {
+            "id": "T-456159",
+            "tenderName": "Аппарат ПЕГАС-142",
+            "startOfTender": {
+                "year": "2023",
+                "month": "5",
+                "day": "11",
+                "hour": "23",
+                "min": "25"
+            },
+            "tenderParameters": {
+                "name": "Параметры и требования",
+                "improveStandartActivites": "Наличие комплекса мероприятий, повышающих стандарты качества изготовления",
+                "productionTime": "Срок изготовления лота",
+                "warranty": "Гарантийные обязательства",
+                "conditionsOfPayment": "Условия оплаты",
+                "price": "Стоимость изготовления лота, руб",
+                "actions": "Действия"
+            }
+        },
+        {
+            "id": "T-332259",
+            "tenderName": "Аппарат ГЕФЕСТ",
+            "startOfTender": {
+                "year": "2023",
+                "month": "5",
+                "day": "11",
+                "hour": "23",
+                "min": "25"
+            },
+            "tenderParameters": {
+                "name": "Параметры и требования",
+                "improveStandartActivites": "Наличие комплекса мероприятий, повышающих стандарты качества изготовления",
+                "productionTime": "Срок изготовления лота",
+                "warranty": "Гарантийные обязательства",
+                "conditionsOfPayment": "Условия оплаты",
+                "price": "Стоимость изготовления лота, руб",
+                "actions": "Действия"
+            }
+        },
+        {
+            "id": "T-756779",
+            "tenderName": "Аппарат ПОКУС-1",
+            "startOfTender": {
+                "year": "2023",
+                "month": "5",
+                "day": "11",
+                "hour": "23",
+                "min": "25"
+            },
+            "tenderParameters": {
+                "name": "Параметры и требования",
+                "improveStandartActivites": "Наличие комплекса мероприятий, повышающих стандарты качества изготовления",
+                "productionTime": "Срок изготовления лота",
+                "warranty": "Гарантийные обязательства",
+                "conditionsOfPayment": "Условия оплаты",
+                "price": "Стоимость изготовления лота, руб",
+                "actions": "Действия"
+            }
+        },
+        {
+            "id": "T-111159",
+            "tenderName": "Аппарат ЛИГА",
+            "startOfTender": {
+                "year": "2023",
+                "month": "5",
+                "day": "11",
+                "hour": "23",
+                "min": "25"
+            },
+            "tenderParameters": {
+                "name": "Параметры и требования",
+                "improveStandartActivites": "Наличие комплекса мероприятий, повышающих стандарты качества изготовления",
+                "productionTime": "Срок изготовления лота",
+                "warranty": "Гарантийные обязательства",
+                "conditionsOfPayment": "Условия оплаты",
+                "price": "Стоимость изготовления лота, руб",
+                "actions": "Действия"
+            }
+        }
+    ],
+    "tendersList": [
+        {
+            "id": "T-332259",
+            "tenderName": "Аппарат ГЕФЕСТ"
+        },
+        {
+            "id": "T-111159",
+            "tenderName": "Аппарат ЛИГА"
+        },
+        {
+            "id": "T-789456",
+            "tenderName": "Аппарат ЛОТОС-12SW"
+        },
+        {
+            "id": "T-456159",
+            "tenderName": "Аппарат ПЕГАС-142"
+        },
+        {
+            "id": "T-756779",
+            "tenderName": "Аппарат ПОКУС-1"
+        }
+    ],
+    "offers": [
+        {
+            "tenderId": "T-756779",
+             "offerDate": "2023-09-27T13:24:31.771Z",
+            "participantId": "P-0002",
+            "name": "ООО ЛЕГИОН АГРО",
+            "improveStandartActivites": "да",
+            "warranty": "есть",
+            "price": 157000
+        },
+        {
+            "tenderId": "T-756779",
+             "offerDate": "2023-09-27T13:14:31.771Z", 
+            "participantId": "P-0004",
+            "name": "ООО АФФИНИТИ ПЛЮС",
+            "improveStandartActivites": "нет",
+            "price": 823500
+        },
+        {
+            "tenderId": "T-332259",
+            "offerDate": "2023-09-27T13:04:31.771Z",
+            "participantId": "P-0001",
+            "name": "ООО СПЕЦМОНТАЖ",
+            "improveStandartActivites": "нет",
+            "price": 175000
+        },
+        {
+            "tenderId": "T-332259",
+            "offerDate": "2023-09-27T13:04:41.771Z",
+            "participantId": "P-0003",
+            "name": "АО БИЗНЕС-СТРОЙ",
+            "improveStandartActivites": "да",
+            "price": 107000
+        },
+        {
+            "tenderId": "T-332259",
+            "offerDate": "2023-09-27T13:04:51.771Z",
+            "participantId": "P-0005",
+            "name": "АО КРОМСКОЙ ЗГИ",
+            "improveStandartActivites": "да",
+            "price": 0
+        },
+        {
+            "tenderId": "T-789456",
+            "participantId": "P-0001",
+            "name": "ООО СПЕЦМОНТАЖ",
+            "improveStandartActivites": "нет",
+            "offerDate": "2023-09-27T13:04:21.771Z",
+            "price": 75000
+        },
+        {
+            "tenderId": "T-789456",
+            "participantId": "P-0002",
+            "name": "ООО ЛЕГИОН АГРО",
+            "improveStandartActivites": "да",
+            "offerDate": "2023-09-27T13:04:22.771Z",
+            "price": 105000
+        },
+        {
+            "tenderId": "T-789456",
+            "participantId": "P-0003",
+            "name": "АО БИЗНЕС-СТРОЙ",
+            "improveStandartActivites": "да",
+            "offerDate": "2023-09-27T13:04:23.771Z",
+            "price": 100000
+        },
+        {
+            "tenderId": "T-789456",
+            "participantId": "P-0004",
+            "name": "ООО АФФИНИТИ ПЛЮС",
+            "improveStandartActivites": "нет",
+            "offerDate": "2023-09-27T13:04:24.771Z",
+            "price": 83500
+        },
+        {
+            "tenderId": "T-456159",
+            "participantId": "P-0001",
+            "name": "ООО СПЕЦМОНТАЖ",
+            "improveStandartActivites": "нет",
+            "offerDate": "2023-09-27T13:04:25.771Z",
+            "price": 125000
+        },
+        {
+            "tenderId": "T-456159",
+            "participantId": "P-0004",
+            "name": "ООО АФФИНИТИ ПЛЮС",
+            "improveStandartActivites": "нет",
+            "offerDate": "2023-09-27T13:04:26.771Z",
+            "price": 166500
+        },
+        {
+            "tenderId": "T-789456",
+            "participantId": "P-0001",
+            "offerDate": "2023-09-27T13:04:21.771Z",
+            "improveStandartActivites": "нет///////////////",
+            "productionTime": "",
+            "warranty": "",
+            "conditionsOfPayment": "",
+            "price": "75000",
+            "id": "PMSrIbo"
+        },
+        {
+            "tenderId": "T-789456",
+            "participantId": "P-0003",
+            "offerDate": "2023-09-27T13:06:23.102Z",
+            "improveStandartActivites": "да++++++++++++++",
+            "productionTime": "",
+            "warranty": "",
+            "conditionsOfPayment": "",
+            "price": "100000",
+            "id": "YtrVBe2"
+        },
+        {
+            "tenderId": "T-789456",
+            "participantId": "P-0003",
+            "offerDate": "2023-09-27T13:07:04.825Z",
+            "improveStandartActivites": "да++++++++++++++///",
+            "productionTime": "",
+            "warranty": "",
+            "conditionsOfPayment": "",
+            "price": "100000",
+            "id": "BiHVu-5"
+        },
+        {
+            "tenderId": "T-789456",
+            "participantId": "P-0003",
+            "offerDate": "2023-09-27T13:07:09.679Z",
+            "improveStandartActivites": "да++++++++++++++///***",
+            "productionTime": "",
+            "warranty": "",
+            "conditionsOfPayment": "",
+            "price": "100000",
+            "id": "755ZfyL"
+        },
+        {
+            "tenderId": "T-756779",
+            "participantId": "P-0002",
+            "offerDate": "2023-09-27T17:25:08.684Z",
+            "improveStandartActivites": "да*******",
+            "productionTime": "",
+            "warranty": "есть",
+            "conditionsOfPayment": "",
+            "price": "157000",
+            "id": "dcmYYAs"
+        },
+        {
+            "tenderId": "T-756779",
+            "participantId": "P-0002",
+            "offerDate": "2023-09-27T17:25:19.842Z",
+            "improveStandartActivites": "да)))))",
+            "productionTime": "",
+            "warranty": "есть",
+            "conditionsOfPayment": "",
+            "price": "157000",
+            "id": "N9hnPvJ"
+        },
+        {
+            "tenderId": "T-756779",
+            "participantId": "P-0002",
+            "offerDate": "2023-09-27T17:25:56.592Z",
+            "improveStandartActivites": "да1",
+            "productionTime": "",
+            "warranty": "есть",
+            "conditionsOfPayment": "",
+            "price": "157000",
+            "id": "bMEiMTa"
+        },
+        {
+            "tenderId": "T-756779",
+            "participantId": "P-0002",
+            "offerDate": "2023-09-27T17:26:00.903Z",
+            "improveStandartActivites": "да12",
+            "productionTime": "",
+            "warranty": "есть",
+            "conditionsOfPayment": "",
+            "price": "157000",
+            "id": "bldsg7b"
+        },
+        {
+            "tenderId": "T-756779",
+            "participantId": "P-0002",
+            "offerDate": "2023-09-27T17:26:04.243Z",
+            "improveStandartActivites": "да123",
+            "productionTime": "",
+            "warranty": "есть",
+            "conditionsOfPayment": "",
+            "price": "157000",
+            "id": "0QH2IDe"
+        },
+        {
+            "tenderId": "T-756779",
+            "participantId": "P-0004",
+            "offerDate": "2023-09-27T17:26:33.983Z",
+            "improveStandartActivites": "нет1",
+            "productionTime": "",
+            "warranty": "",
+            "conditionsOfPayment": "",
+            "price": "823500",
+            "id": "J1pi9ne"
+        },
+        {
+            "tenderId": "T-756779",
+            "participantId": "P-0004",
+            "offerDate": "2023-09-27T17:26:36.467Z",
+            "improveStandartActivites": "нет12",
+            "productionTime": "",
+            "warranty": "",
+            "conditionsOfPayment": "",
+            "price": "823500",
+            "id": "oaWKYNX"
+        },
+        {
+            "tenderId": "T-756779",
+            "participantId": "P-0004",
+            "offerDate": "2023-09-27T17:26:39.560Z",
+            "improveStandartActivites": "нет123",
+            "productionTime": "",
+            "warranty": "",
+            "conditionsOfPayment": "",
+            "price": "823500",
+            "id": "783gKvl"
+        },
+        {
+            "tenderId": "T-332259",
+            "participantId": "P-0003",
+            "offerDate": "2023-09-27T20:04:38.140Z",
+            "improveStandartActivites": "да1",
+            "productionTime": "",
+            "warranty": "",
+            "conditionsOfPayment": "",
+            "price": "107000",
+            "id": "QmjXsgT"
+        },
+        {
+            "tenderId": "T-332259",
+            "participantId": "P-0003",
+            "offerDate": "2023-09-27T20:04:45.799Z",
+            "improveStandartActivites": "да15",
+            "productionTime": "",
+            "warranty": "",
+            "conditionsOfPayment": "",
+            "price": "107000",
+            "id": "OO-j-a0"
+        },
+        {
+            "tenderId": "T-332259",
+            "participantId": "P-0003",
+            "offerDate": "2023-09-27T20:04:49.918Z",
+            "improveStandartActivites": "да159",
+            "productionTime": "",
+            "warranty": "",
+            "conditionsOfPayment": "",
+            "price": "107000",
+            "id": "nxpnq8v"
+        },
+        {
+            "tenderId": "T-332259",
+            "participantId": "P-0005",
+            "offerDate": "2023-09-27T20:05:04.266Z",
+            "improveStandartActivites": "да/1",
+            "productionTime": "",
+            "warranty": "",
+            "conditionsOfPayment": "",
+            "price": "0",
+            "id": "5nqd-uA"
+        },
+        {
+            "tenderId": "T-332259",
+            "participantId": "P-0005",
+            "offerDate": "2023-09-27T20:05:12.442Z",
+            "improveStandartActivites": "да/15",
+            "productionTime": "",
+            "warranty": "",
+            "conditionsOfPayment": "",
+            "price": "0",
+            "id": "MtQStYJ"
+        },
+        {
+            "tenderId": "T-332259",
+            "participantId": "P-0005",
+            "offerDate": "2023-09-27T20:05:17.802Z",
+            "improveStandartActivites": "да/159",
+            "productionTime": "",
+            "warranty": "",
+            "conditionsOfPayment": "",
+            "price": "0",
+            "id": "SuUbK5o"
+        },
+        {
+            "tenderId": "T-756779",
+            "participantId": "P-0004",
+            "offerDate": "2023-09-27T20:07:39.554Z",
+            "improveStandartActivites": "нет*1",
+            "productionTime": "",
+            "warranty": "",
+            "conditionsOfPayment": "",
+            "price": "823500",
+            "id": "H5rkjOj"
+        },
+        {
+            "tenderId": "T-756779",
+            "participantId": "P-0004",
+            "offerDate": "2023-09-27T20:07:49.976Z",
+            "improveStandartActivites": "нет*15",
+            "productionTime": "",
+            "warranty": "",
+            "conditionsOfPayment": "",
+            "price": "823500",
+            "id": "79Erp3Y"
+        },
+        {
+            "tenderId": "T-756779",
+            "participantId": "P-0004",
+            "offerDate": "2023-09-27T20:07:54.774Z",
+            "improveStandartActivites": "нет*159",
+            "productionTime": "",
+            "warranty": "",
+            "conditionsOfPayment": "",
+            "price": "823500",
+            "id": "a0CGvTL"
+        },
+        {
+            "tenderId": "T-756779",
+            "participantId": "P-0002",
+            "offerDate": "2023-09-28T21:14:58.793Z",
+            "improveStandartActivites": "даQ",
+            "productionTime": "",
+            "warranty": "есть",
+            "conditionsOfPayment": "",
+            "price": "157000",
+            "id": "woR_OpN"
+        },
+        {
+            "tenderId": "T-756779",
+            "participantId": "P-0002",
+            "offerDate": "2023-09-29T20:10:05.311Z",
+            "improveStandartActivites": "да362",
+            "productionTime": "",
+            "warranty": "есть",
+            "conditionsOfPayment": "",
+            "price": "157000",
+            "id": "nnUwCeR"
+        },
+        {
+            "tenderId": "T-756779",
+            "participantId": "P-0004",
+            "offerDate": "2023-09-29T20:13:02.094Z",
+            "improveStandartActivites": "нет987",
+            "productionTime": "",
+            "warranty": "",
+            "conditionsOfPayment": "",
+            "price": "83500",
+            "id": "QR7LzGh"
+        },
+        {
+            "tenderId": "T-789456",
+            "participantId": "P-0003",
+            "offerDate": "2023-10-13T17:57:33.354Z",
+            "improveStandartActivites": "да2557",
+            "productionTime": "",
+            "warranty": "",
+            "conditionsOfPayment": "",
+            "price": "100000",
+            "id": "mG5QXjX"
+        }
+    ],
+    "users": [
+        {
+            "userId": "P-0001",
+            "name": "ООО СПЕЦМОНТАЖ",
+            "taxID": "237741258963",
+            "tel": "",
+            "adress": ""
+        },
+        {
+            "userId": "P-0002",
+            "name": "ООО ЛЕГИОН АГРО",
+            "taxID": "нет",
+            "tel": "2376543213537",
+            "adress": ""
+        },
+        {
+            "userId": "P-0003",
+            "name": "АО БИЗНЕС-СТРОЙ",
+            "taxID": "нет",
+            "tel": "633456789159",
+            "adress": ""
+        },
+        {
+            "userId": "P-0004",
+            "name": "ООО АФФИНИТИ ПЛЮС",
+            "taxID": "185789456123",
+            "tel": "",
+            "adress": ""
+        },
+        {
+            "userId": "P-0005",
+            "name": "АО КРОМСКОЙ ЗГИ",
+            "taxID": "575789456123",
+            "tel": "",
+            "adress": ""
+        }
+    ],
+    "posts": [
+        {
+            "id": 1,
+            "title": "json-server",
+            "author": "typicode"
+        },
+        {
+            "id": 2,
+            "title": "server2",
+            "author": "jane"
+        },
+        {
+            "id": 3,
+            "title": "server3",
+            "author": "vladimir"
+        }
+    ],
+    "comments": [
+        {
+            "id": 1,
+            "body": "some comment",
+            "postId": 1
+        },
+        {
+            "id": 2,
+            "body": "some comment",
+            "postId": 3
+        },
+        {
+            "id": 3,
+            "body": "some comment",
+            "postId": 3
+        }
+    ]
+}

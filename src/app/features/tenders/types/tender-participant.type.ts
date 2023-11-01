@@ -4,4 +4,7 @@ export type TTenderParticipant = {
   improveStandartActivites?: string;
   price: string;
   warranty?: string;
+  participantId:string;
+  tenderId:string;
+  offerDate:string;
 };
