@@ -6,7 +6,7 @@ import { CustomButton } from "../../../components/button/custom-button";
 
 export const TableTd = ({
   participant,
-  currentParametr,
+  currentParameter,
   index,
   name,
   actions,
@@ -14,37 +14,37 @@ export const TableTd = ({
   const activeTimerParticipant = useAppSelector(
     (state) => state.activeTimerParticipant.id
   );
-
+  
   let cellContent;
-  if (currentParametr === name) {
+  if (currentParameter === name) {
     cellContent = (
       <>
         <span className={"number-in-order"}>Участник {index + 1}</span>
         <span className={"participant-name"}>
-          {participant[currentParametr as keyof TTenderParameters]}
+          {participant[currentParameter as keyof TTenderParameters]}
         </span>
       </>
     );
-  } else if (currentParametr === actions) {
+  } else if (currentParameter === actions) {
     cellContent = (
       <>
         <CustomButton
-          disabled={activeTimerParticipant !== participant.id}
-          form={participant.id}
+          disabled={activeTimerParticipant !== participant.participantId}
+          form={participant.participantId}
           type={"submit"}
           text={"Сделать ход"}
+          
         />
       </>
     );
   } else {
     cellContent = (
       <>
-        <span>{participant[currentParametr as keyof TTenderParameters]}</span>
         <CustomInput
-          disabled={activeTimerParticipant !== participant.id}
-          startValue={participant[currentParametr as keyof TTenderParameters]}
-          name={currentParametr}
-          form={participant.id}
+          disabled={activeTimerParticipant !== participant.participantId}
+          startValue={participant[currentParameter as keyof TTenderParameters]}
+          name={currentParameter}
+          form={participant.participantId}
         />
       </>
     );

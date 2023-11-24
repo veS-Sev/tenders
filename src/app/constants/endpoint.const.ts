@@ -1,0 +1,1 @@
+export const BASE_ENDPOINT='https://wql378-8080.csb.app'

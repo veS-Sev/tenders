@@ -2,21 +2,17 @@ import { TenderNavbar } from "../../features/tender-navbar/tender-navbar";
 import { Outlet } from "react-router";
 import "../tender-page/tender-page.scss";
 import { ColorRing } from "react-loader-spinner";
-import { useAppSelector } from "../../hooks/useAppSelector.hook";
-import { selectTenderIdsLoadingStatus } from "../../features/tender-navbar/store/tenders-list.slice";
-
+import {useGetTendersListQuery} from '../../features/tender-navbar/api/tenders-list.api'
 
 
 
 export const Layout = () => {
-  const loadingStatus = useAppSelector((state) =>
-    selectTenderIdsLoadingStatus(state)
-  );
 
+  const {isError,isSuccess,isLoading,isFetching}=useGetTendersListQuery({});
 
   return (
     <>
-      {loadingStatus === "loading" && (
+      {(isLoading||isFetching) && (
         <ColorRing
           visible={true}
           height="80"
@@ -27,13 +23,13 @@ export const Layout = () => {
           colors={["#e15b64", "#f47e60", "#f8b26a", "#abbd81", "#849b87"]}
         />
       )}
-      {loadingStatus === "succeeded" && (
+      {isSuccess && (
         <>
           <TenderNavbar />
           <Outlet />
         </>
       )}
-      {loadingStatus === "failed" && <p>Данные не загружены</p>}
+      {isError && <p>Данные не загружены</p>}
     </>
   );
 };

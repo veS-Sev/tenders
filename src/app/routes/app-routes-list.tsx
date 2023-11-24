@@ -10,7 +10,7 @@ export const AppRoutesList = () => {
   const activeTender = useAppSelector(
     (state) => state.activeTender.activeTender
   );
-
+ 
   return (
     <Routes>
       <Route path="/" element={<Layout />}>

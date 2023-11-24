@@ -2,18 +2,18 @@ import "./timer.scss";
 import {memo} from 'react';
 import { useTimer } from "./hook/use-timer.hook";
 import { BsHourglassSplit } from "react-icons/bs";
-import {TTenderParticipant} from '../../features/tenders/types'
+import { TTenderParticipant } from "../../features/tenders/types";
 
 const BsHourglass=memo(BsHourglassSplit);
 
-export type TTimerProp={
-  tenderParticipants:TTenderParticipant[]
+type TTimer={
+  actualOffers: TTenderParticipant[]
 }
 
-export const Timer = (
+export const Timer = ({actualOffers}:TTimer
   ) => {
   const { secRemaiming, minRemaiming, hourRemaiming} =
-  useTimer();
+  useTimer({actualOffers});
 
   return (
     <div className="timer">
