@@ -1,21 +1,20 @@
 import { memo } from "react";
+import { useParams } from "react-router-dom";
 import { TTenderParticipant } from "../../tenders/types";
 import {
-  useMakeOfferMutation,useGetTenderParticipantOffersQuery
+  useMakeOfferMutation
 } from "../api/tender.api";
-// import {useTendersParticipantsList} from '../hooks/use-tender-participants-list.hook'
-
+import { useTendersParticipantsList } from "../hooks/use-tender-participants-list.hook";
 
 export type FormsProps = {
   tenderParticipants: TTenderParticipant[];
-  // tenderParticipants: any[];
-  tenderId: string|undefined;
+  tenderId: string | undefined;
 };
 
-export const Forms = memo(function Forms({
-  tenderId,
-  tenderParticipants
-}: FormsProps) {
+export const Forms = memo(function Forms() {
+  const { id: tenderId } = useParams();
+  //получаю список участников торга
+  const tenderParticipants: any[] = useTendersParticipantsList(tenderId);
 
   const [makeOffer] = useMakeOfferMutation();
 
@@ -24,7 +23,7 @@ export const Forms = memo(function Forms({
     participantId: string
   ) => {
     e.preventDefault();
-console.log('событие формы')
+    console.log("событие формы");
     const form = e.currentTarget;
 
     const formData = new FormData(form);
@@ -38,16 +37,16 @@ console.log('событие формы')
       offerDate: offerDate,
       ...formJson,
     }).unwrap();
-
   };
-  console.log('tenderParticipants FORMS',tenderParticipants)
-return  (
+
+
+  return (
     <>
-      {tenderParticipants.map((participant: any) => (
+      {tenderParticipants.map((participant: string) => (
         <form
-          onSubmit={(e) => handleForm(e, participant?.participantId)}
-          key={participant.participantId}
-          id={participant.participantId}
+          onSubmit={(e) => handleForm(e, participant)}
+          key={participant}
+          id={participant}
         ></form>
       ))}
     </>

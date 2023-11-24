@@ -1,30 +1,22 @@
 import "./table-body.scss";
-import { useEffect } from "react";
 import { useAppSelector } from "../../../hooks";
 import { useGetTenderQuery } from "../api/tender.api";
 import { TTenderParameters } from "../../../features/tenders/types/index";
 import { TTenderParticipant } from "../../tenders/types";
 import { TableTd } from "../table-td/table-td";
-import {
-  useTendersParticipantsList,
-  useActualParticipantOffersForTender,
-} from "../hooks";
 
-export const TableBody = () => {
+type TTableBody={
+  actualOffers: TTenderParticipant[]
+}
+
+export const TableBody = ({actualOffers}:TTableBody) => {
   const tenderId: any = useAppSelector(
     (state) => state.activeTender.activeTender
   );
   const { data, isSuccess } = useGetTenderQuery(tenderId);
-  console.log("tenderQuery", data);
 
   const tenderParameters = isSuccess && data.tenderParameters;
-  const participantsList: any[] = useTendersParticipantsList(tenderId);
 
-
-  const actualOffers = useActualParticipantOffersForTender(
-    participantsList
-  );
-  console.log("actualOffers TB", actualOffers);
   const tenderOffers =  actualOffers;
 
 

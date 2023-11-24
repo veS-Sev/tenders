@@ -14,7 +14,7 @@ export const TableTd = ({
   const activeTimerParticipant = useAppSelector(
     (state) => state.activeTimerParticipant.id
   );
-  // console.log('activeTimerParticipant TTD',activeTimerParticipant)
+  
   let cellContent;
   if (currentParameter === name) {
     cellContent = (
@@ -30,17 +30,16 @@ export const TableTd = ({
       <>
         <CustomButton
           disabled={activeTimerParticipant !== participant.participantId}
-          form={participant.id}
+          form={participant.participantId}
           type={"submit"}
           text={"Сделать ход"}
-          // onClick={(e)=>handleForm(e,participant.id)}
+          
         />
       </>
     );
   } else {
     cellContent = (
       <>
-        {/* <span>{participant[currentParameter as keyof TTenderParameters]}</span> */}
         <CustomInput
           disabled={activeTimerParticipant !== participant.participantId}
           startValue={participant[currentParameter as keyof TTenderParameters]}

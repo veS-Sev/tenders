@@ -1,5 +1,5 @@
 import "./table-head.scss";
-import { useCallback, useEffect } from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useGetTenderQuery } from "../api/tender.api";
 import { Timer } from "../../../components/timer/timer";
@@ -8,43 +8,31 @@ import { TTenderParticipant } from "../../tenders/types";
 import { dateConversion } from "../functions/date-conversion.func";
 import { activeParticipantByIndex } from "../../../functions";
 import { changeActiveParticipant } from "../store/active-timer-participant.slice";
-import {
-  useTendersParticipantsList,
-  useActualParticipantOffersForTender,
-} from "../hooks";
-export const TableHead = () => {
+
+type TTableHead={
+  actualOffers: TTenderParticipant[]
+}
+
+export const TableHead = ({actualOffers}:TTableHead) => {
   const activeTimerParticipant = useAppSelector(
     (state) => state.activeTimerParticipant.id
   );
   const { id } = useParams();
   const dispatch = useAppDispatch();
 
-  const tenderId: string|undefined = useAppSelector(
-    (state) => state.activeTender.activeTender
-  );
-  const participantsList: any[] = useTendersParticipantsList(id);
-
-  console.log('tenderId TH',tenderId)
-
-
-  const { data, isSuccess } = useGetTenderQuery(tenderId);
-console.log('data, isSuccess TH',data, isSuccess)
-const actualOffers = useActualParticipantOffersForTender( participantsList);
-console.log('actualOffers TH',actualOffers)
+  const { data, isSuccess } = useGetTenderQuery(id);
   const startOfTender = isSuccess && dateConversion(data.startOfTender);
-  const tenderParticipants = isSuccess && actualOffers;
-console.log('tenderParticipants TH',tenderParticipants)
   
-const idOfActiveParticipant = ():string => {
+const idOfActiveParticipant = () => {
     const index = activeParticipantByIndex(actualOffers, startOfTender);
-   return isSuccess && actualOffers[index].participantId;
+   return actualOffers[index].participantId;
   };
   useEffect(() => {
-
+    if(isSuccess&&actualOffers){
     dispatch(changeActiveParticipant(idOfActiveParticipant()));
-  }, [tenderParticipants, dispatch, idOfActiveParticipant]);
+}}, [actualOffers, dispatch, idOfActiveParticipant,isSuccess]);
 
-  return (
+  return (<>
     <thead className="table-head">
       <tr>
         <th className="tablehead-th">Ход</th>
@@ -52,19 +40,13 @@ const idOfActiveParticipant = ():string => {
           actualOffers.map((participant: TTenderParticipant) => (
             <th key={participant.id}>
               {participant.participantId === activeTimerParticipant ? (
-                <Timer key={participant.id} />
+                <Timer actualOffers={actualOffers}key={participant.id} />
               ) : null}
             </th>
           ))}
       </tr>
     </thead>
+    </>
   );
 };
-//  const idOfActiveParticipant = useCallback(() => {
-//     const idexOfParticipant = activeParticipantByIndex(
-//       tenderParticipants,
-//       startOfTender
-//     );
 
-//     return tenderParticipants[idexOfParticipant].id;
-//   }, [tenderParticipants, startOfTender]);

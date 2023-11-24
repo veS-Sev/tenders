@@ -18,7 +18,7 @@ endpoints:(build)=>({
    }),
    getOffersForTender:build.query({
       query:(tenderId)=>`/offers?tenderId=${tenderId}`,
-      // providesTags:['Offers'] 
+      providesTags:['Offers'] 
    }),
    getTenderParticipantOffers:build.query({
       query:({tenderId,participantId})=>`/tenders/${tenderId}/offers?participantId=${participantId}`,
@@ -43,4 +43,4 @@ endpoints:(build)=>({
 
 
 })
-export const {useGetTenderQuery,useMakeOfferMutation, useGetTenderAllOffersQuery,useGetOffersForTenderQuery,useGetTenderParticipantOffersQuery}=tenderApi
+export const {useGetTenderQuery,useMakeOfferMutation, useGetTenderAllOffersQuery, useGetOffersForTenderQuery,useGetTenderParticipantOffersQuery}=tenderApi

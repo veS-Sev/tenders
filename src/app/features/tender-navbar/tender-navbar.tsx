@@ -2,7 +2,7 @@ import "./tender-navbar.scss";
 import { chooseCurrentVisibleTender } from "./store/tenders-list.slice";
 import { useAppDispatch} from "../../hooks";
 import {useGetTendersListQuery} from "./api/tenders-list.api";
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink, useParams} from "react-router-dom";
 import { TTendersList } from "./type/tenders-list.type";
 import { useEffect } from "react";
 
@@ -10,10 +10,9 @@ import { useEffect } from "react";
 export const TenderNavbar = () => {
   const {data,isSuccess,isLoading,isFetching}=useGetTendersListQuery({});
   const dispatch = useAppDispatch();
-  const tenderNavHandler = (runningTenderId: string) => {
+  const tenderNavHandler = (runningTenderId: string|null) => {
     dispatch(chooseCurrentVisibleTender(runningTenderId));
   };
-
   const { id } = useParams();
 
   useEffect(() => {
@@ -22,6 +21,7 @@ export const TenderNavbar = () => {
       dispatch(chooseCurrentVisibleTender(id));
     }else{dispatch(chooseCurrentVisibleTender(null))}}
   }, [id,data,dispatch,isSuccess,isLoading,isFetching]);
+
   return (
     <nav className="tender-navbar">
       {isSuccess

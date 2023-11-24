@@ -15,7 +15,6 @@ export const activeTenderReducer = createSlice({
   initialState,
   reducers: {
     chooseCurrentVisibleTender(state, action) {
-      console.log('state.activeTender',state.activeTender)
       state.activeTender = action.payload;
     },
     getTenderIdsList(state,action){

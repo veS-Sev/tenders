@@ -1,20 +1,19 @@
 import { useGetOffersForTenderQuery } from "../api/tender.api";
 import {useTendersParticipantsList} from './use-tender-participants-list.hook'
 import { useParams } from "react-router-dom";
-// этот вариант подучает массив последних офферов
+import {TTenderParticipant} from '../../tenders/types'
+
+//  получаем массив последних офферов
 export const useActualParticipantOffersForTender = (
-  // tenderId: string | undefined,
-  participantsList: string[]
 ) => {
   const { id } = useParams();
-  // const participantsList = useTendersParticipantsList(tenderId);
-  console.log('tenderId HOOK',id)
+  //получаю список участников торга
+  const participantsList: any[] = useTendersParticipantsList(id);
   //получаем данные по тендеру
-  const { data } = useGetOffersForTenderQuery(id);
-  console.log('data HOOK', data )
-  // создаю пустой массив
-  const lastOffers: any[] = [];
-  //отсортировываю оферы каждого учатсника
+  const { data,isSuccess:actualOffersIsSuccess,isFetching:actualOffersIsFetching,isLoading:actualOffersIsLoading,isUninitialized:actualOffersIsUninitialized} = useGetOffersForTenderQuery(id);
+  
+  const actualOffers: TTenderParticipant[] = [];
+  //отсортировываю оферы каждого участника
   participantsList.forEach((participant) => {
     //каждый раз создаем массив в который отфильтровываются предложения по участнику.
     const offers = data.filter(
@@ -23,17 +22,16 @@ export const useActualParticipantOffersForTender = (
     //теперь в этом массиве получаем самый новый по дате оффер и кладем его в общий массив
     offers.forEach((elem: any) => {
       //проверяем есть ли уже в массиве-результате оффер от текущего участника
-      let findedOffer = lastOffers.find(
+      let findedOffer = actualOffers.find(
         (i: any) => i.participantId === elem.participantId
       );
       if (findedOffer === undefined) {
-        lastOffers.push(elem);
+        actualOffers.push(elem);
       } else if (elem?.offerDate > findedOffer.offerDate) {
-        lastOffers.splice(lastOffers.indexOf(findedOffer), 1, elem);
+        actualOffers.splice(actualOffers.indexOf(findedOffer), 1, elem);
       }
     });
  
   });
-  console.log('lastOffers HOOK',lastOffers)
-  return lastOffers;
+  return {actualOffers,actualOffersIsSuccess,actualOffersIsFetching,actualOffersIsLoading, actualOffersIsUninitialized}
 };

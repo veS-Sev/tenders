@@ -5,12 +5,11 @@ import { TendersPage } from "../pages/tenders-page/tenders-page";
 import { TenderPage } from "../pages/tender-page/tender-page";
 import { NotFoundPage } from "../pages/not-found-page/not-faund-page";
 import { useAppSelector } from "../hooks";
-import {useGetTendersListQuery} from "../features/tender-navbar/api/tenders-list.api"
+
 export const AppRoutesList = () => {
   const activeTender = useAppSelector(
     (state) => state.activeTender.activeTender
   );
-  console.log('activeTender AppRoutesList ',activeTender)
  
   return (
     <Routes>
