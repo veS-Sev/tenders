@@ -1,0 +1,22 @@
+.traiding-table{
+    border-collapse: collapse;
+}
+.traiding-table-notice {
+    color: indianred;
+    background-color: rgba($color: indianred, $alpha: 0.1);
+    margin-bottom: 5vh;
+}
+.traiding-table-name {
+    font-size: calc(15px + 1vmin);
+    font-weight: 300;
+    padding: 20px 0;
+    border-bottom: 1px solid #999;
+    margin: 5vh 0;
+
+    span {
+        //  font-size: calc(10px + 1vmin);   
+        font-weight: 500;
+    }
+
+    color:red;
+}

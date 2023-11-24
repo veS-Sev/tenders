@@ -1,0 +1,33 @@
+tbody {
+    font-weight: 300;
+    background-color: rgba($color: #ddd, $alpha: 0.4);
+
+    tr:first-child {
+        color: blue;
+        text-transform: uppercase;
+        border-bottom: 1px solid #252525;
+    }
+
+    tr:nth-child(even) {
+        background-color: rgba($color: #999, $alpha: 0.4)
+    }
+
+    th {
+        text-align: left;
+        font-weight: 300;
+    }
+
+    td {
+        width: 15%;
+        padding: 10px 20px;
+        text-align: center;
+
+    }
+
+    .active {
+        background-color: #afafaf;
+    }
+    .number-in-order{
+        display: block;
+    }
+}
