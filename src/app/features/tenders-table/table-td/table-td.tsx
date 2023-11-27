@@ -1,4 +1,4 @@
-import { TTenderParameters } from "../../../features/tenders/types/index";
+import { TTenderParameters } from "../types/index";
 import { useAppSelector } from "../../../hooks";
 import { TTableTd } from "./table-td.type";
 import { CustomInput } from "../../../components/input/custom-input";

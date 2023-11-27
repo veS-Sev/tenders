@@ -1,7 +1,7 @@
 import { useGetOffersForTenderQuery } from "../api/tender.api";
 import {useTendersParticipantsList} from './use-tender-participants-list.hook'
 import { useParams } from "react-router-dom";
-import {TTenderParticipant} from '../../tenders/types'
+import {TTenderParticipant} from '../types'
 
 //  получаем массив последних офферов
 export const useActualParticipantOffersForTender = (

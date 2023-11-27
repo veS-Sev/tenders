@@ -1,4 +1,4 @@
-import { TStartOfTender} from "../features/tenders/types";
+import { TStartOfTender} from "../features/tenders-table/types";
 
 //переводим дату начала в миллисекунды
 export const startTenderDate = (startOfTender: TStartOfTender)=>{

@@ -1,4 +1,4 @@
-import { TStartOfTenderData} from "../../tenders/types";
+import { TStartOfTenderData} from "../types";
 
 export const showStartDateText = (startOfTender: TStartOfTenderData): string => {
     let { month, day, hour, min } = startOfTender;

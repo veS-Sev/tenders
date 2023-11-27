@@ -8,15 +8,12 @@ import { changeActiveParticipant } from "../../../features/tenders-table/store/a
 import { dateConversion } from "../../../features/tenders-table/functions/date-conversion.func";
 import { activeParticipantByIndex } from "../../../functions/index";
 import { useGetTenderQuery } from "../../../features/tenders-table/api/tender.api";
-import { TTenderParticipant } from "../../../features/tenders/types";
-type TTimer={
-  actualOffers: TTenderParticipant[]
-}
+import { TTimer } from "./type";
+
 
 export const useTimer = ({actualOffers}:TTimer): TUseTimer => {
   const { id } = useParams();
   const { data, isSuccess } = useGetTenderQuery(id);
-
   const startOfTender =
     isSuccess && data.startOfTender && dateConversion(data.startOfTender);
 
@@ -24,9 +21,7 @@ export const useTimer = ({actualOffers}:TTimer): TUseTimer => {
   const [secRemaiming, setSec] = useState(initialTimerDuration.sec);
   const [minRemaiming, setMinRemaiming] = useState(initialTimerDuration.min);
   const [hourRemaiming, setHourRemaiming] = useState(initialTimerDuration.hour);
-
   const totalSecRemaiming = currentSecTimer(startOfTender);
-
   const tenderParticipants = actualOffers;
 
   const idOfActiveParticipant = () => {

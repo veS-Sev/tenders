@@ -1,7 +1,7 @@
 import {useGetOffersForTenderQuery} from '../api/tender.api';
 
 export const useTendersParticipantsList=(tenderId:string|undefined)=>{
-const {data,isSuccess}=useGetOffersForTenderQuery(tenderId)
+const {data}=useGetOffersForTenderQuery(tenderId)
 const list=new Set();
 //нужно добавить тип в котором будет tenderтип(есть)+участник + айдишник
 

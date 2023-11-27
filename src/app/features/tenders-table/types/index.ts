@@ -1,2 +1,4 @@
-export * from './tenders-table-prop.type';
-export * from './tenders-table-reducer.type';
+export * from './start-of-tender.type'
+export * from './tender-parameters.type';
+export * from './tender-participant.type';
+export * from './actual-offers.type'

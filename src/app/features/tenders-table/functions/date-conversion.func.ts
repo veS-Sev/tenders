@@ -1,4 +1,4 @@
-import { TStartOfTenderData } from "../../tenders/types/start-of-tender.type";
+import { TStartOfTenderData } from "../types/start-of-tender.type";
 export const dateConversion = (startOfTender: TStartOfTenderData): any => {
   let { year, month, day, hour, min } = startOfTender;
   const dateStartError = new Error("Дата начала торгов неверна");
