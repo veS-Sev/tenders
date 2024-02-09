@@ -10,8 +10,8 @@ import {
   useGetOffersForTenderQuery,
   useGetTenderQuery,
 } from "./api/tender.api";
-import { TStartOfTenderData } from "../tenders/types";
-import { Forms } from "./forms/forms";
+import { TStartOfTenderData } from "./types";
+import { TableForms } from "./table-forms/table-forms";
 import {
   useActualParticipantOffersForTender,
 } from "./hooks";
@@ -23,7 +23,7 @@ export const TableContainer = () => {
   const { isSuccess: offersDataIsSuccess } =
     useGetOffersForTenderQuery(id);
   //получаем все данные по торгу, кроме офферов
-  const { data, isSuccess, isError} = useGetTenderQuery(id);
+  const { data, isSuccess, isError,isFetching,isLoading} = useGetTenderQuery(id);
 
   const {actualOffers, actualOffersIsSuccess}=
     useActualParticipantOffersForTender();
@@ -31,11 +31,10 @@ export const TableContainer = () => {
   let content;
   let title;
 
-  if (isSuccess && offersDataIsSuccess&&actualOffersIsSuccess&&actualOffers) {
+  if (isSuccess && offersDataIsSuccess&&actualOffersIsSuccess&&actualOffers&&data.id===id) {
     const startOfTenderData: TStartOfTenderData = data?.startOfTender;
     const startOfTender = dateConversion(startOfTenderData);
-  
-    title = (
+     title = (
       <h1 className="traiding-table-name">
         Ход торгов:
         <span>
@@ -52,7 +51,7 @@ export const TableContainer = () => {
     } else if(actualOffers.length!==0) {
       content = (
         <>
-          <Forms />
+          <TableForms />
           <table className="traiding-table">
             <TableHead actualOffers={actualOffers}/>
             <TableBody actualOffers={actualOffers}/>
@@ -62,7 +61,7 @@ export const TableContainer = () => {
     }
   } else if (isError) {
     content = <h3>Данные не загружены</h3>;
-  } else {
+  } else if(isFetching||isLoading) {
     content = (
       <ColorRing
         visible={true}
@@ -75,8 +74,6 @@ export const TableContainer = () => {
       />
     );
   }
-
-
   return (
     <>
       {title}

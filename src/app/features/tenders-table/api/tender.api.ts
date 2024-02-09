@@ -3,7 +3,7 @@ import { BASE_ENDPOINT } from '../../../constants/endpoint.const';
 
 export const tenderApi=createApi({
    reducerPath:'tenderApi',
-   tagTypes:['Tender','Offers','Offer'],
+   tagTypes:['Tender','Offers'],
    baseQuery:fetchBaseQuery({
       baseUrl:BASE_ENDPOINT
    }),
@@ -24,7 +24,7 @@ endpoints:(build)=>({
       query:({tenderId,participantId})=>`/tenders/${tenderId}/offers?participantId=${participantId}`,
       providesTags: (result, error, arg) =>
         result
-          ? [...result.map(({ id }:any) => ({ type: 'Offer' as const, id })), 'Offer']
+          ? [...result.map(({ id }:any) => ({ type: 'Offers' as const, id })), 'Offers']
           : ['Offer'],
    }),
     makeOffer:build.mutation({
@@ -37,7 +37,7 @@ endpoints:(build)=>({
               return headers
           },  
       }),
-      invalidatesTags:['Offer']
+      invalidatesTags:['Offers']
     })
 }),
 

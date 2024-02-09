@@ -1,20 +1,32 @@
-import { TTenderParameters } from "../../../features/tenders/types/index";
-import { useAppSelector } from "../../../hooks";
+import { TTenderParameters } from "../types/index";
+import {memo} from 'react';
+import { useAppSelector,useAppDispatch } from "../../../hooks";
 import { TTableTd } from "./table-td.type";
 import { CustomInput } from "../../../components/input/custom-input";
 import { CustomButton } from "../../../components/button/custom-button";
 
-export const TableTd = ({
+
+export const TableTd = memo(function TableTd({
   participant,
   currentParameter,
   index,
   name,
   actions,
-}: TTableTd) => {
+}: TTableTd){
   const activeTimerParticipant = useAppSelector(
     (state) => state.activeTimerParticipant.id
   );
+const dispatch=useAppDispatch();
+  const changeForm=useAppSelector((state)=>state.offerChange)
+  const disableOfferButton=(participantId:string,form:string,activeTimerParticipant:string|null )=>{
+    console.log('changeForm.offerForm',changeForm.offerForm)
+    const conditionsCompleted=changeForm.offerForm!==form||
+    activeTimerParticipant !==participantId||
+    changeForm.hasChanged===false
+     return conditionsCompleted
+  }
   
+
   let cellContent;
   if (currentParameter === name) {
     cellContent = (
@@ -29,11 +41,15 @@ export const TableTd = ({
     cellContent = (
       <>
         <CustomButton
-          disabled={activeTimerParticipant !== participant.participantId}
+          disabled={disableOfferButton(participant.participantId,participant.participantId,activeTimerParticipant)}
           form={participant.participantId}
           type={"submit"}
-          text={"Сделать ход"}
-          
+          text={"Сделать ход"}   
+//           onClick={()=>{
+// dispatch(offerIsChanging({hasChanged:false}))
+            // здесь нужно продиспачить изменения в changeForm
+          // }
+        // }
         />
       </>
     );
@@ -59,4 +75,5 @@ export const TableTd = ({
       {cellContent}
     </td>
   );
-};
+}
+)

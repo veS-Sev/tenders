@@ -3,10 +3,13 @@ import { tenderApi } from "../features/tenders-table/api/tender.api";
 import { tendersListApi } from "../features/tender-navbar/api/tenders-list.api";
 import activeTimerParticipantSlice from "../features/tenders-table/store/active-timer-participant.slice";
 import activeTenderReducer from "../features/tender-navbar/store/tenders-list.slice";
+import offerChangeReducer from '../features/tenders-table/store/offer-change.slice'
+
 export const store = configureStore({
   reducer: {
     activeTimerParticipant: activeTimerParticipantSlice,
     activeTender: activeTenderReducer,
+    offerChange:offerChangeReducer,
     [tenderApi.reducerPath]: tenderApi.reducer,
     [tendersListApi.reducerPath]:tendersListApi.reducer
   },

@@ -1,7 +1,7 @@
 import { timeHasPassed } from "./time-has-passed.func";
 import { timerDurationInMilSec } from "../components/timer/constants/timer-duration-sec.const";
 import { delayForSwitchingTimerInMilSec } from "../components/timer/constants/delay-for-switching-timer-in-mil-sec.const";
-import {TStartOfTender} from '../features/tenders/types'
+import {TStartOfTender} from '../features/tenders-table/types'
 
 export const currentSecTimer = (startOfTender: TStartOfTender) => {
   // timerDurationSecInMilSec - количество секунд, заданное для таймера умножено на 1000
