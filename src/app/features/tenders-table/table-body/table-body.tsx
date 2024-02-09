@@ -4,13 +4,10 @@ import { useGetTenderQuery } from "../api/tender.api";
 import { TTenderParameters } from "../types/index";
 import { TTenderParticipant } from "../types";
 import { TableTd } from "../table-td/table-td";
-
-type TTableBody={
-  actualOffers: TTenderParticipant[]
-}
+import {TTableBody} from './table-body.type'
 
 export const TableBody = ({actualOffers}:TTableBody) => {
-  const tenderId: any = useAppSelector(
+  const tenderId: string|undefined = useAppSelector(
     (state) => state.activeTender.activeTender
   );
   const { data, isSuccess } = useGetTenderQuery(tenderId);

@@ -1,23 +1,23 @@
 import { TTenderParameters } from "../types/index";
+import {memo} from 'react';
 import { useAppSelector,useAppDispatch } from "../../../hooks";
 import { TTableTd } from "./table-td.type";
 import { CustomInput } from "../../../components/input/custom-input";
 import { CustomButton } from "../../../components/button/custom-button";
-import { offerIsChanging } from "../store/offer-change.slice";
 
-export const TableTd = ({
+
+export const TableTd = memo(function TableTd({
   participant,
   currentParameter,
   index,
   name,
   actions,
-}: TTableTd) => {
+}: TTableTd){
   const activeTimerParticipant = useAppSelector(
     (state) => state.activeTimerParticipant.id
   );
 const dispatch=useAppDispatch();
   const changeForm=useAppSelector((state)=>state.offerChange)
-
   const disableOfferButton=(participantId:string,form:string,activeTimerParticipant:string|null )=>{
     console.log('changeForm.offerForm',changeForm.offerForm)
     const conditionsCompleted=changeForm.offerForm!==form||
@@ -75,4 +75,5 @@ const dispatch=useAppDispatch();
       {cellContent}
     </td>
   );
-};
+}
+)
