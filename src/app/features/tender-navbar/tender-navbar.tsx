@@ -30,7 +30,7 @@ export const TenderNavbar = () => {
               to={`tenders/${tender.id}`}
               className="tender-navbar-link"
               key={tender.id}
-              onClick={() => tenderNavHandler(tender.id)}
+              onClick={()=>tenderNavHandler(tender.id)}
             >
               {tender.tenderName}
             </NavLink>

@@ -5,7 +5,6 @@ import { ColorRing } from "react-loader-spinner";
 import {useGetTendersListQuery} from '../../features/tender-navbar/api/tenders-list.api'
 
 
-
 export const Layout = () => {
 
   const {isError,isSuccess,isLoading,isFetching}=useGetTendersListQuery({});
